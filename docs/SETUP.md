@@ -12,8 +12,11 @@ Step-by-step instructions for setting up Ian Xiaohei Illustrations on every supp
 4. [Gemini CLI](#gemini-cli)
 5. [Hermes Agents](#hermes-agents)
 6. [Antigravity](#antigravity)
-7. [Image Generation Setup](#image-generation-setup)
-8. [Troubleshooting](#troubleshooting)
+7. [Switching Characters](#switching-characters)
+8. [Image Generation Setup](#image-generation-setup)
+9. [Troubleshooting](#troubleshooting)
+
+> **Generating PNGs with Claude Pro or Nano Banana?** See the focused guide: [GENERATE.md](GENERATE.md)
 
 ---
 
@@ -444,12 +447,14 @@ Full descriptors (appearance, personality, prompt injection block): `ian-xiaohei
 
 ## Image Generation Setup
 
-The skill uses a two-layer approach to image generation:
+> For the recommended Claude Pro and Nano Banana workflows, see **[GENERATE.md](GENERATE.md)**.
+
+The skill uses a two-layer approach:
 
 ```
 1. Native image tool (if the host agent provides one)
          ↓  (if not available)
-2. scripts/generate_image.py (bundled binding)
+2. scripts/generate_image.py (bundled binding, auto-detects provider)
 ```
 
 ### Choosing a Provider

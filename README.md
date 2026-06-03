@@ -63,21 +63,31 @@ Full character descriptors: [ian-xiaohei-illustrations/references/characters/](i
 
 ---
 
-## Image Generation
+## Generating Images
 
-The skill uses whatever image model is available, in this priority order:
+Two paths — pick one:
 
-1. **Native image tool** — if the host agent exposes one (e.g. Claude Code's `image_gen`), it's called directly.
-2. **Bundled binding** — `scripts/generate_image.py` auto-detects a provider from your environment:
+| | Path A — Claude Code | Path B — Nano Banana |
+|--|---------------------|----------------------|
+| **Requires** | Claude Pro / Max subscription | Free Google AI Studio key |
+| **How** | `/ian-xiaohei-illustrations` in Claude Code | `python3 scripts/generate_image.py` |
+| **Cost** | Included in your subscription | Free tier available |
 
-| Provider | Model | Env var |
-|----------|-------|---------|
-| **Nano Banana** | `gemini-2.5-flash-image-preview` | `GEMINI_API_KEY` or `GOOGLE_API_KEY` |
-| **DALL·E** | `gpt-image-1` (→ `dall-e-3`) | `OPENAI_API_KEY` |
-| **Imagen** | `imagen-3.0-generate-002` | `GEMINI_API_KEY` or `GOOGLE_API_KEY` |
-| **Stability** | Stable Image SD3 | `STABILITY_API_KEY` |
+**Path A (Claude Code):** install the skill, open Claude Code, type `/ian-xiaohei-illustrations generate illustrations for...` — no API key needed beyond your Pro subscription.
 
-Auto-detect order: **nanobanana → dalle → imagen → stability**. Use `--provider` to force one. No keys set → the script exits with a clear message listing what to set.
+**Path B (Nano Banana):**
+```bash
+export GEMINI_API_KEY="your-key-from-aistudio.google.com"
+python3 ian-xiaohei-illustrations/scripts/generate_image.py \
+  --provider nanobanana \
+  --character xiaohei \
+  --prompt-file examples/prompts/01-xiaohei-content-press.txt \
+  --out examples/output/01-xiaohei-content-press.png
+```
+
+Full step-by-step guide → **[docs/GENERATE.md](docs/GENERATE.md)**
+
+The script also supports DALL·E (`OPENAI_API_KEY`), Imagen (`GEMINI_API_KEY`), and Stability (`STABILITY_API_KEY`) for other providers.
 
 ---
 
