@@ -51,14 +51,31 @@ Default 4–8 images. Very short articles: 1–3. Long articles: don't go beyond
 
 ### 3. Single Image Generation
 
-If the user explicitly says "generate / create / make the image / go ahead," don't stop to confirm — use the built-in `image_gen` tool and generate each image separately. Never combine multiple images into one.
+If the user explicitly says "generate / create / make the image / go ahead," don't stop to confirm. Generate each image separately — never combine multiple images into one.
+
+**How to generate.** Build the prompt from `references/prompt-template.md`, then render it with whatever image model is available:
+
+1. **Built-in image tool** — if the host agent exposes a native image-generation tool (e.g. Claude Code/Codex `image_gen`), call it directly with the prompt.
+2. **Bundled bindings** — otherwise use the bundled script, which auto-detects an available provider (Nano Banana / Gemini, DALL·E / OpenAI, Imagen, Stability):
+
+   ```bash
+   python3 scripts/generate_image.py --prompt-file prompt.txt --out assets/<slug>-illustrations/01-topic.png
+   # force a provider:
+   python3 scripts/generate_image.py --provider nanobanana --prompt-file prompt.txt --out 01-topic.png
+   # check which providers have a key set:
+   python3 scripts/generate_image.py --list-providers
+   ```
+
+   The script reads the API key from the environment (`GEMINI_API_KEY`/`GOOGLE_API_KEY` for Nano Banana & Imagen, `OPENAI_API_KEY` for DALL·E, `STABILITY_API_KEY` for Stability). See `scripts/README.md` for setup.
+
+If no built-in tool and no provider key are available, output the finished prompt and tell the user which env var to set — don't claim an image was produced.
 
 Each image explains only one core structure. Prompts must include:
 
 - 16:9 horizontal article illustration
 - Pure white background
 - Black hand-drawn line art
-- Sparse red/orange/blue handwritten annotations
+- Sparse red/orange/blue handwritten annotations (English by default)
 - Lots of blank space
 - Xiaohei as the core action subject
 - No PPT, no commercial illustration, no cute cartoon, no complex architecture diagrams, no top-left title

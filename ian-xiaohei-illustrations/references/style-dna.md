@@ -2,7 +2,7 @@
 
 ## One Line
 
-Pure white, minimal, hand-drawn, lots of blank space, restrained, absurd, product-sketch feeling, handwritten Chinese annotation feel, clear structure but not an instruction manual.
+Pure white, minimal, hand-drawn, lots of blank space, restrained, absurd, product-sketch feeling, sparse handwritten annotations, clear structure but not an instruction manual.
 
 Like a sketch someone who's been building AI, product, design, and developer tools for a long time dashes off on a blank sheet of paper to explain something.
 
@@ -12,7 +12,7 @@ Like a sketch someone who's been building AI, product, design, and developer too
 - Pure white background: no cream, warm gray, paper texture, gradients, shadows, noise, or vintage paper feel.
 - Black hand-drawn line art as the primary medium: thin lines, slight wobble, not mechanical, not vector-smooth, not heavy outlines.
 - Lots of blank space: main subject occupies roughly 40%–60% of the canvas, at least 35% empty, ideally one entirely quiet zone.
-- Sparse handwritten annotations: 5–8 max, each 2–8 characters whenever possible.
+- Sparse handwritten annotations: English by default, 5–8 max, each 1–4 words whenever possible. (Chinese annotations are the original look and remain an option.)
 - One image explains only one core action, structure, state, or metaphor.
 - Structure should express itself naturally — don't write the structure type's name on the image.
 

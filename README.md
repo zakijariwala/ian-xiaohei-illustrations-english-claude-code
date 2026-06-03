@@ -76,6 +76,33 @@ Not produced by default:
 
 ---
 
+## Image Generation Bindings
+
+If your agent has a native image-generation tool, the skill uses it directly. If not, it falls back to the bundled binding `ian-xiaohei-illustrations/scripts/generate_image.py`, which renders the prompt with whichever model has an API key set:
+
+| Provider | Model | API key env var |
+|----------|-------|-----------------|
+| **Nano Banana** | `gemini-2.5-flash-image-preview` | `GEMINI_API_KEY` / `GOOGLE_API_KEY` |
+| **DALL·E** | `gpt-image-1` (→ `dall-e-3`) | `OPENAI_API_KEY` |
+| **Imagen** | `imagen-3.0-generate-002` | `GEMINI_API_KEY` / `GOOGLE_API_KEY` |
+| **Stability** | Stable Image SD3 | `STABILITY_API_KEY` |
+
+```bash
+export GEMINI_API_KEY="your-key"   # or OPENAI_API_KEY / STABILITY_API_KEY
+python3 ian-xiaohei-illustrations/scripts/generate_image.py \
+  --prompt-file prompt.txt \
+  --out assets/my-article-illustrations/01-topic.png
+
+# which providers are configured?
+python3 ian-xiaohei-illustrations/scripts/generate_image.py --list-providers
+```
+
+Without `--provider`, it auto-detects in order: Nano Banana → DALL·E → Imagen → Stability. Pure Python 3 (stdlib only). See [scripts/README.md](ian-xiaohei-illustrations/scripts/README.md) for full details.
+
+**Labels are English by default.** To restore the original Chinese-annotation look, see the note at the top of `references/prompt-template.md`.
+
+---
+
 ## Installation
 
 Clone the repo:
@@ -225,6 +252,9 @@ More examples: [examples/prompts.md](examples/prompts.md)
     │   ├── gemini.md                  ← Gemini CLI
     │   ├── hermes.yaml                ← Hermes agents
     │   └── antigravity.yaml           ← Antigravity agents
+    ├── scripts/
+    │   ├── generate_image.py          ← Nano Banana / DALL·E / Imagen / Stability bindings
+    │   └── README.md
     ├── assets/
     │   └── examples/
     └── references/

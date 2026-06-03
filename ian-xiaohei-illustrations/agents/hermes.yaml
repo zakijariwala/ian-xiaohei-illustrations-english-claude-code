@@ -26,10 +26,18 @@ system_prompt: |
   - Invent a fresh metaphor for every image — never recreate old example compositions.
   - No PPT, no formal flowchart, no cute cartoon, no complex architecture diagram.
 
+  Annotations are English by default, short (1-4 words), spelled correctly.
+
+  To render an image: use a native image tool if available, otherwise run the
+  bundled binding `python3 scripts/generate_image.py --prompt-file prompt.txt
+  --out <path>`, which auto-detects Nano Banana / DALL-E / Imagen / Stability
+  from the API key environment variables (see scripts/README.md).
+
   Load reference files from the `references/` directory as needed for detail.
 
 tools:
   - image_generation
+  - shell  # for scripts/generate_image.py fallback binding
 
 triggers:
   - article illustrations

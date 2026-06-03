@@ -25,8 +25,8 @@ Load these as needed (don't load all at once):
 
 1. Read and digest the article content
 2. If asked for planning only: output a shot list (4–8 images, one per cognitive anchor)
-3. If asked to generate: call the image generation tool for each image separately
+3. If asked to generate: render each image separately. Use a native image tool if present; otherwise run the bundled binding `python3 scripts/generate_image.py --prompt-file prompt.txt --out <path>` (auto-detects Nano Banana / DALL·E / Imagen / Stability from the API key env vars — see `scripts/README.md`)
 4. Check QA checklist after each generation
 5. Save final images to `assets/<article-slug>-illustrations/`
 
-Each image: 16:9, pure white background, black hand-drawn line art, Xiaohei as core action subject, sparse annotations, lots of blank space. One structure per image. Never copy old example compositions.
+Each image: 16:9, pure white background, black hand-drawn line art, Xiaohei as core action subject, sparse English annotations, lots of blank space. One structure per image. Never copy old example compositions.

@@ -33,7 +33,15 @@ skill:
 
   tools:
     - name: image_generation
-      required: true
+      required: false
+      note: Use native image tool if present.
+    - name: shell
+      required: false
+      note: Fallback binding `python3 scripts/generate_image.py` (Nano Banana / DALL-E / Imagen / Stability).
+
+  image_generation:
+    fallback_script: ../scripts/generate_image.py
+    auto_detect_order: [nanobanana, dalle, imagen, stability]
 
   output:
     save_path: "assets/{article-slug}-illustrations/"

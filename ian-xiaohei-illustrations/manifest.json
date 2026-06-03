@@ -32,7 +32,17 @@
       "entry": "agents/antigravity.yaml"
     }
   },
-  "tools_required": ["image_generation"],
+  "image_generation": {
+    "native_tool": "image_gen",
+    "fallback_script": "scripts/generate_image.py",
+    "providers": {
+      "nanobanana": { "model": "gemini-2.5-flash-image-preview", "api_key_env": ["GEMINI_API_KEY", "GOOGLE_API_KEY"] },
+      "dalle": { "model": "gpt-image-1", "api_key_env": ["OPENAI_API_KEY"] },
+      "imagen": { "model": "imagen-3.0-generate-002", "api_key_env": ["GEMINI_API_KEY", "GOOGLE_API_KEY"] },
+      "stability": { "model": "sd3", "api_key_env": ["STABILITY_API_KEY"] }
+    },
+    "auto_detect_order": ["nanobanana", "dalle", "imagen", "stability"]
+  },
   "references": [
     "references/style-dna.md",
     "references/xiaohei-ip.md",
