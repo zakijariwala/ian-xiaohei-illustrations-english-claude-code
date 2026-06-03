@@ -65,29 +65,26 @@ Full character descriptors: [ian-xiaohei-illustrations/references/characters/](i
 
 ## Generating Images
 
-Two paths — pick one:
+**[Full guide → docs/GENERATE.md](docs/GENERATE.md)**
 
-| | Path A — Claude Code | Path B — Nano Banana |
-|--|---------------------|----------------------|
-| **Requires** | Claude Pro / Max subscription | Free Google AI Studio key |
-| **How** | `/ian-xiaohei-illustrations` in Claude Code | `python3 scripts/generate_image.py` |
-| **Cost** | Included in your subscription | Free tier available |
+Three ways:
 
-**Path A (Claude Code):** install the skill, open Claude Code, type `/ian-xiaohei-illustrations generate illustrations for...` — no API key needed beyond your Pro subscription.
+| Method | Cost | Setup |
+|--------|------|-------|
+| **Script + Nano Banana / Imagen** | Free tier | `GEMINI_API_KEY` from [aistudio.google.com](https://aistudio.google.com) |
+| **Script + DALL·E** | Paid | `OPENAI_API_KEY` from [platform.openai.com](https://platform.openai.com/api-keys) |
+| **Script + Stability** | Trial credits | `STABILITY_API_KEY` from [platform.stability.ai](https://platform.stability.ai) |
+| **Claude Code native** | Claude Pro/Max subscription | Install Claude Code + skill |
+| **Web UI (free, no API)** | Free | Paste prompt into Claude.ai, Google AI Studio, Bing, Firefly, or Ideogram |
 
-**Path B (Nano Banana):**
+Quickest start — Nano Banana free tier:
 ```bash
 export GEMINI_API_KEY="your-key-from-aistudio.google.com"
 python3 ian-xiaohei-illustrations/scripts/generate_image.py \
-  --provider nanobanana \
-  --character xiaohei \
+  --provider nanobanana --character xiaohei \
   --prompt-file examples/prompts/01-xiaohei-content-press.txt \
   --out examples/output/01-xiaohei-content-press.png
 ```
-
-Full step-by-step guide → **[docs/GENERATE.md](docs/GENERATE.md)**
-
-The script also supports DALL·E (`OPENAI_API_KEY`), Imagen (`GEMINI_API_KEY`), and Stability (`STABILITY_API_KEY`) for other providers.
 
 ---
 
