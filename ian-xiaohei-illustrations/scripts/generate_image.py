@@ -239,6 +239,42 @@ CHARACTER_ALIASES = {
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 _SKILL_ROOT = os.path.dirname(_SCRIPT_DIR)
 _CHARS_DIR = os.path.join(_SKILL_ROOT, "references", "characters")
+_SETTINGS_FILE = os.path.join(_SKILL_ROOT, "settings.json")
+
+
+# ---- Settings ----
+
+def _load_settings():
+    """Return parsed settings dict, or {} if file missing/corrupt."""
+    if not os.path.exists(_SETTINGS_FILE):
+        return {}
+    try:
+        with open(_SETTINGS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def _save_settings(data):
+    """Write settings dict to settings.json."""
+    existing = _load_settings()
+    existing.update(data)
+    # Keep the human-readable note
+    if "_note" not in existing:
+        existing["_note"] = (
+            "Change default_character to any ID from references/characters/INDEX.md, "
+            "or run: python3 scripts/generate_image.py --set-default <id>"
+        )
+    with open(_SETTINGS_FILE, "w", encoding="utf-8") as f:
+        json.dump(existing, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+
+def get_default_character():
+    """Return the configured default character ID, falling back to 'xiaohei'."""
+    settings = _load_settings()
+    raw = settings.get("default_character", "xiaohei")
+    return CHARACTER_ALIASES.get(raw.lower().strip(), raw.lower().strip())
 
 
 def _load_character_injection(char_id):
@@ -307,13 +343,19 @@ def read_prompt(args):
 
 
 def main():
+    default_char = get_default_character()
+
     parser = argparse.ArgumentParser(
         description="Generate one illustration via an available image model."
     )
     parser.add_argument("--provider", help="nanobanana|gemini, dalle|openai, imagen, stability|sd. Auto-detected if omitted.")
-    parser.add_argument("--character", "-c", default="xiaohei",
-                        help="IP character to use. Default: xiaohei. "
-                             "See references/characters/INDEX.md for all IDs.")
+    parser.add_argument("--character", "-c", default=None,
+                        help=f"IP character to use. Defaults to the value in settings.json "
+                             f"(currently: {default_char}). See --list-characters for all IDs.")
+    parser.add_argument("--set-default", metavar="CHARACTER_ID",
+                        help="Set a new default character in settings.json and exit.")
+    parser.add_argument("--show-default", action="store_true",
+                        help="Print the current default character and exit.")
     parser.add_argument("--prompt", help="Prompt text.")
     parser.add_argument("--prompt-file", help="Path to a file containing the prompt.")
     parser.add_argument("--out", "-o", default="illustration.png", help="Output PNG path.")
@@ -327,19 +369,47 @@ def main():
         return 0
 
     if args.list_characters:
+        current_default = get_default_character()
         print(f"{'ID':<14} {'Display Name':<26} {'Culture'}")
         print("-" * 65)
         for cid, (name, culture) in CHARACTERS.items():
-            marker = " (default)" if cid == "xiaohei" else ""
+            marker = " ← default" if cid == current_default else ""
             print(f"{cid:<14} {name:<26} {culture}{marker}")
+        print(f"\nSettings file: {_SETTINGS_FILE}")
+        print(f"Change default: python3 {os.path.basename(__file__)} --set-default <id>")
         return 0
 
-    # Resolve character alias -> canonical ID.
-    char_raw = args.character.lower().strip()
+    if args.show_default:
+        cid = get_default_character()
+        name, culture = CHARACTERS.get(cid, (cid, "unknown"))
+        print(f"Default character: {cid}")
+        print(f"  {name} — {culture}")
+        print(f"  Settings: {_SETTINGS_FILE}")
+        return 0
+
+    if args.set_default:
+        raw = args.set_default.lower().strip()
+        new_id = CHARACTER_ALIASES.get(raw, raw)
+        if new_id not in CHARACTERS:
+            print(
+                f"Unknown character: {args.set_default}. "
+                f"Run --list-characters to see available IDs.",
+                file=sys.stderr,
+            )
+            return 2
+        _save_settings({"default_character": new_id})
+        name, culture = CHARACTERS[new_id]
+        print(f"Default character updated: {new_id}")
+        print(f"  {name} — {culture}")
+        print(f"  Saved to: {_SETTINGS_FILE}")
+        return 0
+
+    # Resolve character: CLI flag > settings.json default > hardcoded fallback
+    char_raw = (args.character or default_char).lower().strip()
     char_id = CHARACTER_ALIASES.get(char_raw, char_raw)
     if char_id not in CHARACTERS:
         print(
-            f"Unknown character: {args.character}. "
+            f"Unknown character: {args.character or default_char}. "
             f"Run --list-characters to see available IDs.",
             file=sys.stderr,
         )

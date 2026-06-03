@@ -1,0 +1,4 @@
+{
+  "default_character": "xiaohei",
+  "_note": "Change default_character to any ID from references/characters/INDEX.md, or run: python3 scripts/generate_image.py --set-default <id>"
+}

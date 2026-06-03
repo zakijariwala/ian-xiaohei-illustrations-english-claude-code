@@ -27,7 +27,14 @@ Load only what the task requires — don't fill the context with everything at o
 
 ### 0. Select a Character
 
-Default character is **Xiaohei**. If the user specifies a different character, load its file from `references/characters/<id>.md` and use the `Prompt Injection` block in every image prompt instead of the default Xiaohei block.
+**Read `settings.json` first.** The `default_character` field sets which IP character to use when the user hasn't specified one. If the file is missing, fall back to `xiaohei`.
+
+```json
+// settings.json
+{ "default_character": "the-smudge" }
+```
+
+If the user specifies a different character in their request (by name, alias, ID, or culture), that overrides `settings.json` for this session only. Load the character's file from `references/characters/<id>.md` and use its `Prompt Injection` block in every image prompt.
 
 Available characters (see `references/characters/INDEX.md` for full list):
 
@@ -47,7 +54,31 @@ The user can request a character by name, alias, or culture: "use the American c
 
 Via the generation script: `python3 scripts/generate_image.py --character the-smudge ...`
 
-### 1. Digest the Article
+### 1. Scan the Project (if no article is provided)
+
+If the user hasn't pasted an article and hasn't pointed you at a specific file, run the project scanner to discover content candidates in the current directory:
+
+```bash
+# Human-readable output — good for showing the user
+python3 scripts/scan_project.py
+
+# Scan a specific directory
+python3 scripts/scan_project.py /path/to/project
+
+# Scan a single file
+python3 scripts/scan_project.py --file post.md
+
+# JSON output — good for agent parsing
+python3 scripts/scan_project.py --json
+```
+
+The scanner walks the working directory, skips boilerplate (README, LICENSE, changelogs), scores Markdown / `.txt` / `.rst` files by heading density and cognitive-anchor signals, and outputs the top candidates with their headings and a sample anchor sentence.
+
+**After scanning:** show the user the ranked file list and ask which article to illustrate, or suggest the highest-scoring file and proceed if the user said "go ahead."
+
+If `scripts/scan_project.py` is not present (skill not installed to disk), replicate the logic manually: list `.md` / `.txt` files in the current directory, read the largest ones, extract headings, and propose a shot list.
+
+### 2. Digest the Article  <!-- run after scanning or when article is provided directly -->
 
 First read the article, link, Notion page, Markdown file, or screenshot content the user provides. Extract:
 
@@ -58,7 +89,7 @@ First read the article, link, Notion page, Markdown file, or screenshot content 
 
 Don't distribute illustrations evenly. Prioritize "cognitive anchors": core judgments, two breakpoints, input-output loops, decision forks, before-after contrasts, one-to-many reuse, handoff paths, common pitfalls, character state changes.
 
-### 2. Produce a Shot List First
+### 3. Produce a Shot List First
 
 If the user only says "analyze how to illustrate this / think about where illustrations would help," give a shot list first. For each image write:
 
@@ -72,7 +103,7 @@ If the user only says "analyze how to illustrate this / think about where illust
 
 Default 4–8 images. Very short articles: 1–3. Long articles: don't go beyond 9 unless essential. Enough is enough — avoid turning the article into a picture book.
 
-### 3. Single Image Generation
+### 4. Single Image Generation
 
 If the user explicitly says "generate / create / make the image / go ahead," don't stop to confirm. Generate each image separately — never combine multiple images into one.
 
@@ -105,7 +136,7 @@ Each image explains only one core structure. Prompts must include:
 
 Never recreate past examples. Examples only calibrate visual density and Xiaohei's level of involvement — never directly reuse compositions like "conveyor belt breakpoints / Xiaohei pulling levers / fish materials / stamp toolbox / common pitfall path." Every image must invent a fresh, strange-but-coherent metaphor from the current article.
 
-### 4. Check and Iterate
+### 5. Check and Iterate
 
 After generating, check `references/qa-checklist.md`. If any of these issues appear, prioritize regenerating or locally editing:
 
@@ -117,7 +148,7 @@ After generating, check `references/qa-checklist.md`. If any of these issues app
 - Art style is too cute, childish, or stiff
 - Background is not clean white
 
-### 5. Save and Deliver
+### 6. Save and Deliver
 
 If the user is working within a workspace, copy final images to:
 
