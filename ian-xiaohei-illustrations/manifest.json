@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "name": "ian-xiaohei-illustrations",
+  "display_name": "Ian Xiaohei Illustrations",
+  "version": "1.0.0",
+  "description": "Generate Ian-style hand-drawn body illustrations for articles using the Xiaohei IP. Turns key article judgments, flows, structures, states, and metaphors into clean 16:9 hand-drawn explanatory images.",
+  "author": {
+    "name": "Ian (伊恩)",
+    "github": "helloianneo",
+    "twitter": "ianneo_ai",
+    "website": "https://www.ianneo.xyz"
+  },
+  "license": "MIT",
+  "keywords": ["illustration", "article", "image-generation", "hand-drawn", "xiaohei", "content", "visual-metaphor"],
+  "platforms": {
+    "claude_code": {
+      "entry": "SKILL.md",
+      "install": "cp -R . \"${HOME}/.claude/skills/ian-xiaohei-illustrations\""
+    },
+    "openai_codex": {
+      "entry": "agents/openai.yaml",
+      "install": "cp -R . \"${CODEX_HOME:-$HOME/.codex}/skills/ian-xiaohei-illustrations\""
+    },
+    "gemini_cli": {
+      "entry": "agents/gemini.md",
+      "install": "cp -R . \"${HOME}/.gemini/skills/ian-xiaohei-illustrations\""
+    },
+    "hermes": {
+      "entry": "agents/hermes.yaml"
+    },
+    "antigravity": {
+      "entry": "agents/antigravity.yaml"
+    }
+  },
+  "characters": {
+    "default": "xiaohei",
+    "index": "references/characters/INDEX.md",
+    "available": [
+      { "id": "xiaohei",    "display": "Xiaohei (小黑)",      "culture": "Chinese / East Asian" },
+      { "id": "chibi-kage", "display": "Chibi Kage (小影)",   "culture": "Japanese" },
+      { "id": "kaala",      "display": "Kaala (काला)",         "culture": "South / Southeast Asian" },
+      { "id": "kali-tikka", "display": "Kali Tikka",          "culture": "Indian (street / vernacular)" },
+      { "id": "le-bloc",    "display": "Le Bloc / Der Fleck", "culture": "European" },
+      { "id": "the-smudge", "display": "The Smudge",          "culture": "American" },
+      { "id": "dudu",       "display": "Dudu",                "culture": "West African / Afrofuturist" },
+      { "id": "el-manchon", "display": "El Manchón",          "culture": "Latin American" },
+      { "id": "al-zill",    "display": "Al-Zill (الظل)",      "culture": "Middle Eastern / Arabic" }
+    ]
+  },
+  "image_generation": {
+    "native_tool": "image_gen",
+    "fallback_script": "scripts/generate_image.py",
+    "providers": {
+      "nanobanana": { "model": "gemini-2.5-flash-image-preview", "api_key_env": ["GEMINI_API_KEY", "GOOGLE_API_KEY"] },
+      "dalle": { "model": "gpt-image-1", "api_key_env": ["OPENAI_API_KEY"] },
+      "imagen": { "model": "imagen-3.0-generate-002", "api_key_env": ["GEMINI_API_KEY", "GOOGLE_API_KEY"] },
+      "stability": { "model": "sd3", "api_key_env": ["STABILITY_API_KEY"] }
+    },
+    "auto_detect_order": ["nanobanana", "dalle", "imagen", "stability"]
+  },
+  "references": [
+    "references/style-dna.md",
+    "references/xiaohei-ip.md",
+    "references/composition-patterns.md",
+    "references/prompt-template.md",
+    "references/qa-checklist.md"
+  ]
+}

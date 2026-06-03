@@ -1,0 +1,45 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+Xiaohei (小黑), a small solid-black absurd creature with white dot eyes, tiny thin legs,
+blank serious expression, slightly uneven hand-drawn ink-blob body. Xiaohei must perform
+the core conceptual action, not decorate the scene. Serious, deadpan, slightly bizarre.
+Not cute. Like a Chinese ink-brush mark that grew limbs and got a job.
+
+Theme:
+One raw recording fed into a hand-crank press produces five distinct content formats.
+
+Structure type:
+Workflow with Conceptual Metaphor overlay.
+
+Core idea:
+A single crumpled audio tape goes in on the left; Xiaohei feeds it into a strange
+hand-cranked press box and turns the crank; five clean labeled format strips emerge
+from the right side of the machine. The press is low-tech, slightly broken-looking,
+but clearly works.
+
+Suggested elements:
+crumpled tape reel / hand-crank press box / five output strips fanning out / one orange input arrow
+
+Handwritten labels (English, short):
+one recording / crank it / newsletter / thread / clip
+
+Color use:
+Black for Xiaohei, the press, tape, and output strips. Orange for the single input
+arrow from tape to machine. Red for the label on the most important output strip.
+Blue for secondary format labels.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 5 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type
+on the image. Do not make it a formal diagram, course slide, or dense explainer.
+Invent a fresh visual metaphor — do not reuse known Xiaohei compositions. Clear but
+not instructional, interesting but not childish, strange but clean.

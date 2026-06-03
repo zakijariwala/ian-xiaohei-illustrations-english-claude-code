@@ -1,0 +1,47 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+Le Bloc (also known as Der Fleck), an irregular ink-blot silhouette figure with slightly
+soft bled-ink edges and a single round white monocle eye. Body has Swiss poster and
+Bauhaus geometric reduction quality — clean, purposeful, slightly translucent at the
+edges like a half-spent stamp. Le Bloc performs the core action with bureaucratic
+precision and existential awareness — it knows the task is absurd and does it correctly
+anyway. Dry. Formal. Melancholic. Not cute.
+
+Theme:
+A winding bureaucratic approval path where every box is checked correctly and the route
+loops back to the beginning.
+
+Structure type:
+Map / Route.
+
+Core idea:
+A winding path of 4–5 small rectangular stamp-boxes snakes across the canvas. Each box
+has a small checkmark inside it. Le Bloc walks the path, holding a tiny stamp, positioned
+at box 4. A small orange arrow from the last box curves back and points to box 1. The
+loop is complete. Nothing was decided. Everything was documented.
+
+Suggested elements:
+winding path of stamp-boxes / checkmarks / Le Bloc with tiny stamp / loop-back arrow
+
+Handwritten labels (English, short):
+step 1 / approved / step 4 / back to step 1
+
+Color use:
+Black for Le Bloc, the path, the boxes, and checkmarks. Orange for the loop-back arrow
+from the last box to the first. Red for the "back to step 1" label — the punchline.
+Blue for "approved" labels on the intermediate boxes.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 4 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Not a formal flowchart. The humor is in the loop — make it subtle, not cartoonish.
+Strange but clean.

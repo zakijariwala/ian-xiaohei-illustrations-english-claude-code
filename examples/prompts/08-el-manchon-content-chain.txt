@@ -1,0 +1,48 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+El Manchón, a fluid black silhouette figure with slightly organic flowing edges, white
+crescent eyes (slight upward curve), and a dynamic posture — slight forward lean, weight
+on one foot, always mid-action. Body has Mexican grabado linocut print quality: slightly
+rough, bold, high-contrast marks. El Manchón performs the core action with the physical
+commitment of a muralist — labor as dignity, full body presence. More expressive in
+posture than other IPs, but face stays deadpan. Not cute. Here to do the work.
+
+Theme:
+Content distribution as collective labor — one folded sheet carried along a winding path,
+passed forward by many hands, traveling further than any single person could take it.
+
+Structure type:
+Map / Route.
+
+Core idea:
+A winding path runs left to right across the canvas. El Manchón leads at the front-left,
+leaning forward with weight on the front foot, holding a folded content sheet raised
+slightly. Behind, along the winding path, 3–4 smaller simplified silhouette figures each
+hold the same folded sheet, spaced apart. The path extends and slightly disappears off
+the right edge of the canvas — implying it keeps going.
+
+Suggested elements:
+folded content sheet / winding path / El Manchón at front / 3–4 silhouettes carrying it behind
+
+Handwritten labels (English, short):
+one post / carried forward / by many / further than you planned
+
+Color use:
+Black for El Manchón, all silhouettes, and the content sheet. Orange for the path line
+and the direction of movement. Red for "further than you planned" at the right edge —
+the payoff. Blue for "by many" near the middle figures.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 4 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Not a formal diagram. The energy is communal momentum — El Manchón's forward lean
+should feel like it's pulling the whole chain. Strange but clean.

@@ -1,0 +1,47 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+Chibi Kage (小影), a flat black silhouette paper-spirit with a single large white oval
+eye, no visible feet (floats slightly above the ground line), one small sleeve-covered
+arm. Body has clean kirie cut-paper edges and solid ukiyo-e woodblock ink quality. Chibi
+Kage performs the core action with ancient ceremonial seriousness — like a yokai assigned
+to run a Kanban board. Never cute. Quietly unsettling. No feet, just presence.
+
+Theme:
+A paper-spirit weaving scattered note-scraps into a connected, pull-able knowledge net
+on an ancient hand-loom.
+
+Structure type:
+Conceptual Metaphor.
+
+Core idea:
+Loose note-scraps drift in from the left. Chibi Kage floats at the center operating
+an ancient narrow hand-loom with one sleeve-covered arm, feeding the scraps in. From
+the right side of the loom emerges a small woven net made of connected note-cards. One
+thread of the net is being gently pulled upward, and a small cluster of linked cards
+lifts with it. The right third of the image is mostly empty and calm.
+
+Suggested elements:
+drifting note-scraps / ancient narrow hand-loom / woven note-card net / one pulled thread lifting a cluster
+
+Handwritten labels (English, short):
+scattered notes / woven into one / pull any thread / linked cluster
+
+Color use:
+Black for Chibi Kage, the loom, and the woven net. Orange for the input flow of note-scraps
+toward the loom. Red for the label on the pulled thread ("pull any thread"). Blue for the
+secondary cluster label.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 4 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Do not make it a formal diagram. Invent a fresh visual metaphor. Clear but not
+instructional, strange but clean. The character must float — no feet touching the ground.

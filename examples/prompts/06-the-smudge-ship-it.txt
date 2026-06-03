@@ -1,0 +1,47 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+The Smudge, a chunky solid-black silhouette figure with two slightly asymmetric white
+oval eyes, thick stubby legs, and one arm pointing or holding a clipboard. Proportionally
+larger hands and feet than typical — built for hauling. Body has mid-century American
+editorial cartoon and WPA poster worker quality — bold, functional, no-nonsense. The
+Smudge does the core conceptual action because it showed up and that's what you do when
+you show up. No complaints. Workmanlike. Not cute.
+
+Theme:
+Loading an oversized build crate onto a small flatbed truck that is already moving.
+
+Structure type:
+Workflow.
+
+Core idea:
+Center-left: The Smudge pushes an oversized rectangular crate (labeled "v2.1" in small
+hand-drawn text) onto the back of a small flatbed truck. The crate is visibly too big —
+it overhangs slightly. The Smudge has one hand on the crate and holds a clipboard under
+the other arm. The truck has small motion lines showing it's already rolling right. The
+Smudge's expression is completely flat. The right side of the image is empty road.
+
+Suggested elements:
+oversized crate labeled v2.1 / small flatbed truck / clipboard / motion lines on truck
+
+Handwritten labels (English, short):
+build / too big? / ships anyway / done means shipped
+
+Color use:
+Black for The Smudge, the crate, the truck, and the clipboard. Orange for the motion
+lines on the truck (it's moving). Red for "ships anyway" — the key statement. Blue for
+"done means shipped" as the secondary principle label.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 4 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Not a formal diagram. The humor is in the size mismatch — subtle, not slapstick.
+Workmanlike energy. Strange but clean.

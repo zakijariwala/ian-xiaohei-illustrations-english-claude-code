@@ -1,0 +1,49 @@
+skill:
+  name: ian-xiaohei-illustrations
+  display_name: Ian Xiaohei Illustrations
+  version: "1.0.0"
+  description: >
+    Generate Ian-style hand-drawn body illustrations for articles using the Xiaohei IP.
+    Use for article illustrations, shot lists, image suggestions, or visual metaphors
+    for articles, posts, blogs, Notion docs, workflow docs, methodology content,
+    processes, structures, states, or concepts.
+
+  trigger_phrases:
+    - "generate illustrations"
+    - "shot list"
+    - "article illustration"
+    - "xiaohei"
+    - "hand-drawn image"
+    - "body copy image"
+    - "visual metaphor"
+
+  instructions_file: ../SKILL.md
+
+  references:
+    - path: ../references/style-dna.md
+      load: on_demand
+    - path: ../references/xiaohei-ip.md
+      load: on_demand
+    - path: ../references/composition-patterns.md
+      load: on_demand
+    - path: ../references/prompt-template.md
+      load: on_demand
+    - path: ../references/qa-checklist.md
+      load: on_demand
+
+  tools:
+    - name: image_generation
+      required: false
+      note: Use native image tool if present.
+    - name: shell
+      required: false
+      note: Fallback binding `python3 scripts/generate_image.py` (Nano Banana / DALL-E / Imagen / Stability).
+
+  image_generation:
+    fallback_script: ../scripts/generate_image.py
+    auto_detect_order: [nanobanana, dalle, imagen, stability]
+
+  output:
+    save_path: "assets/{article-slug}-illustrations/"
+    format: png
+    naming: "{index:02d}-{topic}.png"

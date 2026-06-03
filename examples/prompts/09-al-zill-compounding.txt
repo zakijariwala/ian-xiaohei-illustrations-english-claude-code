@@ -1,0 +1,49 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+Al-Zill (الظل), a tall thin black silhouette figure, slightly pointed at the top, with
+narrow white almond-shaped eyes and long sleeves that always conceal the hands. Body has
+Islamic geometric pattern precision and Karagöz shadow-puppet flatness — pure 2D,
+mathematically clean, ornament as structure. Al-Zill performs the core action through
+presence and implication: the hands are never visible, but the task is clearly being
+done. Patient. Architectural. Stoic. Not cute. Has been doing this for a century.
+
+Theme:
+A tower built one stone at a time, over a very long period, by a figure who has been
+at it since before the viewer arrived.
+
+Structure type:
+Conceptual Metaphor.
+
+Core idea:
+Right-center: a tall, narrow tower of small stacked rectangular stones. The tower is
+already impressively tall — it reaches toward the top of the frame. Al-Zill stands
+beside it on the right, tall and still, one sleeve raised as if the most recent stone
+was just placed. Some stones have tiny hand-drawn date labels ("day 1", "year 2") at
+different heights. The left two-thirds of the canvas is mostly empty. The tower and
+Al-Zill together occupy the right third. The image is calm and geometric.
+
+Suggested elements:
+tall narrow stone tower / Al-Zill beside it with one sleeve raised / small date labels at different heights
+
+Handwritten labels (English, short):
+day 1 / year 2 / still going / inevitable
+
+Color use:
+Black for Al-Zill and the entire tower. Orange for a subtle vertical arrow beside the
+tower indicating upward accumulation. Red for "inevitable" near the top of the tower —
+the conclusion. Blue for the small date labels embedded in the stones.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 4 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Not a formal diagram. The image should feel patient and inevitable — not motivational,
+not urgent. Al-Zill's hands must not be visible. Strange but clean.
