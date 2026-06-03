@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "name": "ian-xiaohei-illustrations",
+  "display_name": "Ian Xiaohei Illustrations",
+  "version": "1.0.0",
+  "description": "Generate Ian-style hand-drawn body illustrations for articles using the Xiaohei IP. Turns key article judgments, flows, structures, states, and metaphors into clean 16:9 hand-drawn explanatory images.",
+  "author": {
+    "name": "Ian (伊恩)",
+    "github": "helloianneo",
+    "twitter": "ianneo_ai",
+    "website": "https://www.ianneo.xyz"
+  },
+  "license": "MIT",
+  "keywords": ["illustration", "article", "image-generation", "hand-drawn", "xiaohei", "content", "visual-metaphor"],
+  "platforms": {
+    "claude_code": {
+      "entry": "SKILL.md",
+      "install": "cp -R . \"${HOME}/.claude/skills/ian-xiaohei-illustrations\""
+    },
+    "openai_codex": {
+      "entry": "agents/openai.yaml",
+      "install": "cp -R . \"${CODEX_HOME:-$HOME/.codex}/skills/ian-xiaohei-illustrations\""
+    },
+    "gemini_cli": {
+      "entry": "agents/gemini.md",
+      "install": "cp -R . \"${HOME}/.gemini/skills/ian-xiaohei-illustrations\""
+    },
+    "hermes": {
+      "entry": "agents/hermes.yaml"
+    },
+    "antigravity": {
+      "entry": "agents/antigravity.yaml"
+    }
+  },
+  "tools_required": ["image_generation"],
+  "references": [
+    "references/style-dna.md",
+    "references/xiaohei-ip.md",
+    "references/composition-patterns.md",
+    "references/prompt-template.md",
+    "references/qa-checklist.md"
+  ]
+}
