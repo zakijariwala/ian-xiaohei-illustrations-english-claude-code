@@ -1,148 +1,70 @@
 # Ian Xiaohei Illustrations
 
-> Turn the judgments, flows, states, and metaphors inside an article into clean 16:9 hand-drawn body illustrations.
+> Turn the judgments, flows, states, and metaphors inside an article into clean, absurd 16:9 hand-drawn body illustrations.
 >
-> 16:9 horizontal · Xiaohei IP · Pure white hand-drawn · Sparse red/orange/blue annotations · Multi-platform skill
+> 16:9 horizontal · Xiaohei IP · Pure white hand-drawn · Sparse English annotations · Multi-platform skill
 
 ---
 
 ## What This Is
 
-Ian Xiaohei Illustrations is a multi-platform AI agent skill for generating hand-drawn body illustrations for articles, posts, blogs, Notion docs, and methodology content.
+**Ian Xiaohei Illustrations** is a multi-platform AI agent skill for generating hand-drawn body illustrations for articles, posts, blogs, Notion docs, and methodology content.
 
-It is not a general illustration prompt, and not a PPT infographic template. Its core goal is to first understand the cognitive anchors in an article, then turn one judgment, flow, structure, state, or metaphor into a memorable 16:9 hand-drawn explanatory image.
+Not a general illustration prompt, not a PPT infographic template. Its job is to first understand the cognitive anchors in an article, then turn one judgment, flow, structure, state, or metaphor into a memorable 16:9 hand-drawn image.
 
-The default visual IP is "Xiaohei" (小黑): a solid black creature with white dot eyes, thin legs, and a blank expression. Xiaohei is not a mascot, not a sticker, not a decoration — Xiaohei is seriously participating in how the system operates, doing something slightly absurd but coherent.
+The default visual IP is **Xiaohei** (小黑): a solid black creature with white dot eyes, thin legs, and a blank expression. Xiaohei is not a mascot — Xiaohei is seriously performing something absurd but coherent, as the core actor in every image.
 
-**In one line: make AI not just "add an image," but draw out one key cognitive action from the article.**
-
----
-
-## Who It's For
-
-Best fit:
-- Writers who need body illustrations and article images for their content
-- People producing knowledge content, methodology content, or AI workflow content
-- Anyone who wants to turn abstract judgments into concrete visual metaphors
-- People who want a style lighter, stranger, and more recognizable than PPT infographics
-- Anyone using an AI agent CLI who wants a stable, reusable visual language
-
-Not a fit:
-- People who want commercial illustration, brand KV, or polished flat design
-- People who want traditional PPT infographics, complex architecture diagrams, or formal flowcharts
-- People who want children's cartoons, cute IP, or meme-style images
-- People who want to pack long text passages or full course pages into one image
-- People who need strictly editable vector source files
-
----
-
-## What It Produces
-
-Default output:
-- 16:9 horizontal body illustrations
-- A shot list of 4–8 images for an article
-- Per-image: theme, core meaning, structure type, Xiaohei's action, suggested annotations
-- Final PNG files saved to `assets/<article-slug>-illustrations/`
-
-Not produced by default:
-- PPTX / PDF / Keynote
-- SVG / HTML / Canvas editable files
-- Commercial poster or cover KV
-- Dense text infographics
-
----
-
-## Visual Style
-
-- Pure white background — no paper texture, cream, shadows, gradients
-- Black hand-drawn line art, thin lines, slight wobble
-- Lots of blank space — main subject ~40%–60% of canvas
-- Sparse red/orange/blue handwritten annotations
-- One image = one core action, structure, state, or metaphor
-- Xiaohei must perform the core action — not just decoration
-- Absurd, creative, clean — not childish, not cute
+**In one line:** make AI not just "add an image," but draw out a key cognitive action from the article.
 
 ---
 
 ## Supported Platforms
 
-| Platform | Entry File | Install Path |
-|----------|-----------|--------------|
-| **Claude Code** | `SKILL.md` | `~/.claude/skills/ian-xiaohei-illustrations/` |
-| **OpenAI Codex** | `agents/openai.yaml` | `~/.codex/skills/ian-xiaohei-illustrations/` |
-| **Gemini CLI** | `agents/gemini.md` | `~/.gemini/skills/ian-xiaohei-illustrations/` |
-| **Hermes** | `agents/hermes.yaml` | — |
-| **Antigravity** | `agents/antigravity.yaml` | — |
+| Platform | Entry Point | Status |
+|----------|------------|--------|
+| [Claude Code](#claude-code) | `SKILL.md` | ✅ Full skill with `/ian-xiaohei-illustrations` |
+| [OpenAI Codex](#openai-codex) | `agents/openai.yaml` | ✅ `$ian-xiaohei-illustrations` |
+| [Gemini CLI](#gemini-cli) | `agents/gemini.md` | ✅ `@ian-xiaohei-illustrations` |
+| [Hermes](#hermes-agents) | `agents/hermes.yaml` | ✅ Trigger phrases |
+| [Antigravity](#antigravity) | `agents/antigravity.yaml` | ✅ Skill config |
 
 ---
 
-## Image Generation Bindings
+## Image Generation
 
-If your agent has a native image-generation tool, the skill uses it directly. If not, it falls back to the bundled binding `ian-xiaohei-illustrations/scripts/generate_image.py`, which renders the prompt with whichever model has an API key set:
+The skill uses whatever image model is available, in this priority order:
 
-| Provider | Model | API key env var |
-|----------|-------|-----------------|
-| **Nano Banana** | `gemini-2.5-flash-image-preview` | `GEMINI_API_KEY` / `GOOGLE_API_KEY` |
+1. **Native image tool** — if the host agent exposes one (e.g. Claude Code's `image_gen`), it's called directly.
+2. **Bundled binding** — `scripts/generate_image.py` auto-detects a provider from your environment:
+
+| Provider | Model | Env var |
+|----------|-------|---------|
+| **Nano Banana** | `gemini-2.5-flash-image-preview` | `GEMINI_API_KEY` or `GOOGLE_API_KEY` |
 | **DALL·E** | `gpt-image-1` (→ `dall-e-3`) | `OPENAI_API_KEY` |
-| **Imagen** | `imagen-3.0-generate-002` | `GEMINI_API_KEY` / `GOOGLE_API_KEY` |
+| **Imagen** | `imagen-3.0-generate-002` | `GEMINI_API_KEY` or `GOOGLE_API_KEY` |
 | **Stability** | Stable Image SD3 | `STABILITY_API_KEY` |
 
-```bash
-export GEMINI_API_KEY="your-key"   # or OPENAI_API_KEY / STABILITY_API_KEY
-python3 ian-xiaohei-illustrations/scripts/generate_image.py \
-  --prompt-file prompt.txt \
-  --out assets/my-article-illustrations/01-topic.png
-
-# which providers are configured?
-python3 ian-xiaohei-illustrations/scripts/generate_image.py --list-providers
-```
-
-Without `--provider`, it auto-detects in order: Nano Banana → DALL·E → Imagen → Stability. Pure Python 3 (stdlib only). See [scripts/README.md](ian-xiaohei-illustrations/scripts/README.md) for full details.
-
-**Labels are English by default.** To restore the original Chinese-annotation look, see the note at the top of `references/prompt-template.md`.
+Auto-detect order: **nanobanana → dalle → imagen → stability**. Use `--provider` to force one. No keys set → the script exits with a clear message listing what to set.
 
 ---
 
-## Installation
-
-Clone the repo:
+## Quick Install
 
 ```bash
-git clone https://github.com/helloianneo/ian-xiaohei-illustrations-english.git
-cd ian-xiaohei-illustrations-english
-```
+git clone https://github.com/zakijariwala/ian-xiaohei-illustrations-english-claude-code.git
+cd ian-xiaohei-illustrations-english-claude-code
 
-### Auto-detect and install
-
-```bash
+# Auto-detects your agent CLI (claude / codex / gemini)
 chmod +x ian-xiaohei-illustrations/install.sh
 ./ian-xiaohei-illustrations/install.sh
+
+# Or force a platform
+./ian-xiaohei-illustrations/install.sh claude
+./ian-xiaohei-illustrations/install.sh codex
+./ian-xiaohei-illustrations/install.sh gemini
 ```
 
-The script detects your active AI CLI (`claude`, `codex`, or `gemini`) and installs to the right directory.
-
-### Manual install
-
-**Claude Code:**
-
-```bash
-mkdir -p ~/.claude/skills
-cp -R ./ian-xiaohei-illustrations ~/.claude/skills/
-```
-
-**OpenAI Codex:**
-
-```bash
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
-```
-
-**Gemini CLI:**
-
-```bash
-mkdir -p ~/.gemini/skills
-cp -R ./ian-xiaohei-illustrations ~/.gemini/skills/
-```
+For per-agent step-by-step instructions → **[docs/SETUP.md](docs/SETUP.md)**
 
 ---
 
@@ -159,7 +81,7 @@ cp -R ./ian-xiaohei-illustrations ~/.gemini/skills/
 ### OpenAI Codex
 
 ```text
-Use $ian-xiaohei-illustrations to design and generate 5 Xiaohei hand-drawn illustrations for this article.
+Use $ian-xiaohei-illustrations to generate 5 Xiaohei hand-drawn illustrations for this article.
 
 <paste article>
 ```
@@ -176,37 +98,34 @@ Use $ian-xiaohei-illustrations to design and generate 5 Xiaohei hand-drawn illus
 
 ## Common Tasks
 
-### Planning only — no generation
-
+**Plan only (no generation):**
 ```text
-Use the ian-xiaohei-illustrations skill. Don't generate images yet.
+Use ian-xiaohei-illustrations. Don't generate images yet.
 Analyze this article and produce a shot list of ~5 illustrations.
-For each: which paragraph it follows, theme, core meaning, structure type, what Xiaohei is doing, suggested annotation words.
+For each: paragraph placement, theme, core meaning, structure type,
+what Xiaohei is doing, suggested annotation words.
 
 <paste article>
 ```
 
-### Generate body illustrations directly
-
+**Generate illustrations directly:**
 ```text
-Use the ian-xiaohei-illustrations skill to generate 4 Xiaohei hand-drawn illustrations for this article.
-Requirements: 16:9 horizontal, pure white background, black hand-drawn line art, sparse red/orange/blue annotations.
+Use ian-xiaohei-illustrations to generate 4 Xiaohei hand-drawn illustrations for this article.
+16:9, pure white, black hand-drawn line art, sparse English annotations.
 
 <paste article>
 ```
 
-### Generate one image for a concept
-
+**Generate one image for a single concept:**
 ```text
-Use the ian-xiaohei-illustrations skill to generate one illustration for the idea:
+Use ian-xiaohei-illustrations to generate one illustration for:
 "Trust isn't declared — it's laid brick by brick, one piece of evidence at a time."
-The image should be absurd but clean, and Xiaohei must carry the core action.
+Absurd but clean. Xiaohei must carry the core action.
 ```
 
-### Remove a title or wrong text from an image
-
+**Remove a wrong title from an image:**
 ```text
-Use the ian-xiaohei-illustrations skill to edit this image.
+Use ian-xiaohei-illustrations to edit this image.
 Remove the "Flowchart" title from the top-left corner. Keep everything else exactly as-is.
 ```
 
@@ -214,17 +133,31 @@ More examples: [examples/prompts.md](examples/prompts.md)
 
 ---
 
-## Workflow
+## What It Produces
 
-1. Read the article, Markdown, Notion content, screenshot, or user-provided theme
-2. Extract core arguments, cognitive turning points, flows, and visually explainable paragraphs
-3. Output shot list: one cognitive anchor per image
-4. Choose a structure type: Workflow, System Slice, Before-After Contrast, Character State, Conceptual Metaphor, Method Layers, Map Route, or Mini Comic Panels
-5. Invent a low-tech, absurd-but-coherent physical metaphor
-6. Let Xiaohei carry the core action
-7. Generate each image separately via the image generation tool
-8. Run QA checklist: white background, blank space, Xiaohei's action, annotations, non-PPT feel, no old-example recreation
-9. Save final PNGs and report purpose and path
+✅ Default output:
+- 16:9 horizontal body illustrations
+- Shot list of 4–8 images per article
+- Per-image: theme, core meaning, structure type, Xiaohei's action, annotation words
+- Final PNG files saved to `assets/<article-slug>-illustrations/`
+
+❌ Not produced:
+- PPTX / PDF / Keynote
+- SVG / HTML / Canvas editable files
+- Commercial poster or cover artwork
+- Dense text infographics
+
+---
+
+## Visual Style
+
+- **Background:** Pure white — no paper texture, cream, shadows, or gradients
+- **Line art:** Black hand-drawn, thin lines, slight wobble
+- **Space:** Lots of blank space — main subject ~40%–60% of canvas
+- **Annotations:** Sparse, English by default, 1–4 words each
+- **Colors:** Black (main) · Orange (flow/arrows) · Red (warnings/results) · Blue (secondary notes)
+- **Xiaohei:** Must perform the core action — remove him and the metaphor should collapse
+- **Aesthetic:** Absurd, creative, clean — not childish, not cute, not stiff
 
 ---
 
@@ -235,28 +168,27 @@ More examples: [examples/prompts.md](examples/prompts.md)
 ├── README.md
 ├── LICENSE
 ├── NOTICE.md
+├── docs/
+│   └── SETUP.md                       ← Per-agent step-by-step setup guides
 ├── assets/
 │   └── ian-wechat-qr.jpg
 ├── examples/
 │   ├── images/
-│   │   ├── 01-two-breakpoints.png
-│   │   ├── 02-sort-by-purpose.png
-│   │   └── ...
 │   └── prompts.md
-└── ian-xiaohei-illustrations/        ← install this directory
-    ├── SKILL.md                       ← Claude Code entry point
-    ├── manifest.json                  ← Universal plugin manifest
-    ├── install.sh                     ← Auto-installer
+└── ian-xiaohei-illustrations/         ← The skill — install this directory
+    ├── SKILL.md                        ← Claude Code entry point
+    ├── manifest.json                   ← Universal plugin manifest
+    ├── install.sh                      ← Auto-installer
     ├── agents/
-    │   ├── openai.yaml                ← OpenAI Codex
-    │   ├── gemini.md                  ← Gemini CLI
-    │   ├── hermes.yaml                ← Hermes agents
-    │   └── antigravity.yaml           ← Antigravity agents
+    │   ├── openai.yaml                 ← OpenAI Codex config
+    │   ├── gemini.md                   ← Gemini CLI config
+    │   ├── hermes.yaml                 ← Hermes agent config
+    │   └── antigravity.yaml            ← Antigravity agent config
     ├── scripts/
-    │   ├── generate_image.py          ← Nano Banana / DALL·E / Imagen / Stability bindings
-    │   └── README.md
+    │   ├── generate_image.py           ← Image bindings (Nano Banana/DALL·E/Imagen/Stability)
+    │   └── README.md                   ← Provider setup reference
     ├── assets/
-    │   └── examples/
+    │   └── examples/                   ← Visual calibration only — never copy compositions
     └── references/
         ├── style-dna.md
         ├── xiaohei-ip.md
@@ -265,40 +197,30 @@ More examples: [examples/prompts.md](examples/prompts.md)
         └── qa-checklist.md
 ```
 
-Only the subdirectory needs to be installed:
-
-```text
-ian-xiaohei-illustrations/
-```
-
-The root README, LICENSE, NOTICE, and examples are GitHub sharing docs.
-
 ---
 
 ## Notes
 
-- Fewer Chinese characters in images = more stable output.
+- Fewer words in annotations = more stable image output.
 - One image = one core structure. Don't turn the article into a manual.
-- Xiaohei must carry the core action. If the metaphor holds without Xiaohei, Xiaohei is too decorative.
-- Example images are only for calibrating line density, blank space, color restraint, and Xiaohei's energy — never copy compositions.
-- AI image models may produce typos, hallucinated labels, style drift, or extra titles — check every output.
-- If Chinese characters are badly wrong, reduce annotation count and regenerate.
+- If removing Xiaohei leaves the metaphor fully intact, Xiaohei is too decorative — regenerate.
+- Example images calibrate line density, blank space, and Xiaohei's energy — never copy their compositions.
+- AI image models may produce typos, hallucinated labels, or style drift — check every output.
+- Annotations default to English. To use the original Chinese look, see the note in `references/prompt-template.md`.
 
 ---
 
 ## Related Projects
 
-- [Ian Handdrawn PPT](https://github.com/helloianneo/ian-handdrawn-ppt) — Chinese hand-drawn tech PPT-style page generation skill
-- [Awesome Claude Code Skills](https://github.com/helloianneo/awesome-claude-code-skills) — Curated collection of Claude Code skills, agents, and plugins
-- [Obsidian + Claude AI Second Brain](https://github.com/helloianneo/obsidian-ai-second-brain) — Obsidian + Claude AI personal knowledge base guide
+- [Ian Handdrawn PPT](https://github.com/helloianneo/ian-handdrawn-ppt) — Hand-drawn tech PPT-style page generation skill
+- [Awesome Claude Code Skills](https://github.com/helloianneo/awesome-claude-code-skills) — Curated Claude Code skills, agents, and plugins
+- [Obsidian + Claude AI Second Brain](https://github.com/helloianneo/obsidian-ai-second-brain) — Personal knowledge base with Obsidian + Claude AI
 
 ---
 
 ## About the Author
 
-**Ian (伊恩)** — Product designer / Solo founder / AI Builder
-
-Building a one-person company with an AI team.
+**Ian (伊恩)** — Product designer / solo founder / AI builder
 
 - GitHub: [helloianneo](https://github.com/helloianneo)
 - X/Twitter: [@ianneo_ai](https://x.com/ianneo_ai)
