@@ -29,12 +29,23 @@ Usage
   python3 generate_image.py --provider dalle --prompt "..." --out img.png
   echo "..." | python3 generate_image.py --out img.png
   python3 generate_image.py --list-providers
+Characters
+----------
+  Use --character <id> to swap the IP character. Default: xiaohei.
+  Available IDs: xiaohei, chibi-kage, kaala, kali-tikka, le-bloc,
+                 the-smudge, dudu, el-manchon, al-zill
+  Use --list-characters to see all characters and their cultures.
+
+  The character's "Prompt Injection" block is extracted from
+  references/characters/<id>.md and spliced into the prompt, replacing
+  the default Xiaohei block (if present) or appended before the theme.
 """
 
 import argparse
 import base64
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -196,6 +207,91 @@ GENERATORS = {
     "stability": gen_stability,
 }
 
+# ---- Character IP loading ----
+
+# Canonical IDs and their display names / cultures (for --list-characters).
+CHARACTERS = {
+    "xiaohei":     ("Xiaohei (小黑)",       "Chinese / East Asian"),
+    "chibi-kage":  ("Chibi Kage (小影)",    "Japanese"),
+    "kaala":       ("Kaala (काला)",          "South / Southeast Asian"),
+    "kali-tikka":  ("Kali Tikka",           "Indian (street / vernacular)"),
+    "le-bloc":     ("Le Bloc / Der Fleck",  "European"),
+    "the-smudge":  ("The Smudge",           "American"),
+    "dudu":        ("Dudu",                 "West African / Afrofuturist"),
+    "el-manchon":  ("El Manchón",           "Latin American"),
+    "al-zill":     ("Al-Zill (الظل)",       "Middle Eastern / Arabic"),
+}
+
+# Aliases that map to canonical IDs.
+CHARACTER_ALIASES = {
+    "xiaohei": "xiaohei", "xiao-hei": "xiaohei", "小黑": "xiaohei",
+    "chibi-kage": "chibi-kage", "kage": "chibi-kage", "小影": "chibi-kage",
+    "kaala": "kaala", "kala": "kaala",
+    "kali-tikka": "kali-tikka", "tikka": "kali-tikka",
+    "le-bloc": "le-bloc", "bloc": "le-bloc", "der-fleck": "le-bloc", "fleck": "le-bloc",
+    "the-smudge": "the-smudge", "smudge": "the-smudge",
+    "dudu": "dudu",
+    "el-manchon": "el-manchon", "manchon": "el-manchon",
+    "al-zill": "al-zill", "zill": "al-zill", "الظل": "al-zill",
+}
+
+# The characters/ dir lives alongside this script's parent (the skill root).
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_SKILL_ROOT = os.path.dirname(_SCRIPT_DIR)
+_CHARS_DIR = os.path.join(_SKILL_ROOT, "references", "characters")
+
+
+def _load_character_injection(char_id):
+    """Return the 'Prompt Injection' code block text from a character file."""
+    char_file = os.path.join(_CHARS_DIR, f"{char_id}.md")
+    if not os.path.exists(char_file):
+        raise RuntimeError(
+            f"Character file not found: {char_file}\n"
+            f"Available: {', '.join(CHARACTERS)}"
+        )
+    with open(char_file, "r", encoding="utf-8") as f:
+        content = f.read()
+    # Extract the fenced code block under '## Prompt Injection'
+    match = re.search(
+        r"## Prompt Injection\s*```[^\n]*\n(.*?)```",
+        content,
+        re.DOTALL,
+    )
+    if not match:
+        raise RuntimeError(f"No 'Prompt Injection' code block found in {char_file}")
+    return match.group(1).strip()
+
+
+def inject_character(prompt, char_id):
+    """
+    Splice the character's Prompt Injection block into the prompt.
+
+    Replaces the 'IP character required:' paragraph if present; otherwise
+    inserts the block after 'Visual DNA:' paragraph, before 'Theme:'.
+    If neither anchor is found, appends at the end.
+    """
+    injection = _load_character_injection(char_id)
+    char_block = f"IP character required:\n{injection}"
+
+    # Replace existing IP character block (any character's block).
+    replaced = re.sub(
+        r"IP character(?: required)?:.*?(?=\n\n|\nTheme:|\nStructure type:|\Z)",
+        char_block,
+        prompt,
+        flags=re.DOTALL,
+    )
+    if replaced != prompt:
+        return replaced
+
+    # Insert before 'Theme:' if no existing block.
+    if "\nTheme:" in prompt:
+        return prompt.replace("\nTheme:", f"\n{char_block}\n\nTheme:", 1)
+
+    # Fallback: append.
+    return prompt.rstrip() + f"\n\n{char_block}"
+
+
+# ---- Prompt reading ----
 
 def read_prompt(args):
     if args.prompt:
@@ -211,12 +307,18 @@ def read_prompt(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate one illustration via an available image model.")
+    parser = argparse.ArgumentParser(
+        description="Generate one illustration via an available image model."
+    )
     parser.add_argument("--provider", help="nanobanana|gemini, dalle|openai, imagen, stability|sd. Auto-detected if omitted.")
+    parser.add_argument("--character", "-c", default="xiaohei",
+                        help="IP character to use. Default: xiaohei. "
+                             "See references/characters/INDEX.md for all IDs.")
     parser.add_argument("--prompt", help="Prompt text.")
     parser.add_argument("--prompt-file", help="Path to a file containing the prompt.")
     parser.add_argument("--out", "-o", default="illustration.png", help="Output PNG path.")
     parser.add_argument("--list-providers", action="store_true", help="List providers with a key set, then exit.")
+    parser.add_argument("--list-characters", action="store_true", help="List available IP characters, then exit.")
     args = parser.parse_args()
 
     if args.list_providers:
@@ -224,7 +326,27 @@ def main():
         print("Available (key present):", ", ".join(found) if found else "(none)")
         return 0
 
+    if args.list_characters:
+        print(f"{'ID':<14} {'Display Name':<26} {'Culture'}")
+        print("-" * 65)
+        for cid, (name, culture) in CHARACTERS.items():
+            marker = " (default)" if cid == "xiaohei" else ""
+            print(f"{cid:<14} {name:<26} {culture}{marker}")
+        return 0
+
+    # Resolve character alias -> canonical ID.
+    char_raw = args.character.lower().strip()
+    char_id = CHARACTER_ALIASES.get(char_raw, char_raw)
+    if char_id not in CHARACTERS:
+        print(
+            f"Unknown character: {args.character}. "
+            f"Run --list-characters to see available IDs.",
+            file=sys.stderr,
+        )
+        return 2
+
     prompt = read_prompt(args)
+    prompt = inject_character(prompt, char_id)
 
     if args.provider:
         canonical = PROVIDER_ALIASES.get(args.provider.lower())
@@ -234,7 +356,8 @@ def main():
     else:
         canonical = detect_provider()
 
-    print(f"[generate_image] provider={canonical} -> {args.out}", file=sys.stderr)
+    char_name = CHARACTERS[char_id][0]
+    print(f"[generate_image] provider={canonical} character={char_id} ({char_name}) -> {args.out}", file=sys.stderr)
     image_bytes = GENERATORS[canonical](prompt)
 
     out_dir = os.path.dirname(os.path.abspath(args.out))

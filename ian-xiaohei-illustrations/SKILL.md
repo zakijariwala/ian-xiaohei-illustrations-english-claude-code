@@ -16,13 +16,36 @@ The default visual IP is "Xiaohei" (小黑): a solid black creature with white d
 Load only what the task requires — don't fill the context with everything at once:
 
 - `references/style-dna.md`: Visual DNA, colors, typography, and prohibitions.
-- `references/xiaohei-ip.md`: Xiaohei's appearance, personality, action library, and prohibitions.
+- `references/characters/INDEX.md`: All available IP characters with IDs and cultures.
+- `references/characters/<id>.md`: The active character's descriptors and prompt injection block.
 - `references/composition-patterns.md`: Structure types, original metaphor method, and anti-reuse rules.
 - `references/prompt-template.md`: Single-image generation prompt template.
 - `references/qa-checklist.md`: Post-generation checklist and iteration rules.
 - `assets/examples/`: Use only for low-frequency visual calibration — not in the default generation path. Never copy these examples' compositions, objects, or labels.
 
 ## Workflow
+
+### 0. Select a Character
+
+Default character is **Xiaohei**. If the user specifies a different character, load its file from `references/characters/<id>.md` and use the `Prompt Injection` block in every image prompt instead of the default Xiaohei block.
+
+Available characters (see `references/characters/INDEX.md` for full list):
+
+| ID | Culture |
+|----|---------|
+| `xiaohei` | Chinese / East Asian (default) |
+| `chibi-kage` | Japanese |
+| `kaala` | South / Southeast Asian |
+| `kali-tikka` | Indian (street / vernacular) |
+| `le-bloc` | European |
+| `the-smudge` | American |
+| `dudu` | West African / Afrofuturist |
+| `el-manchon` | Latin American |
+| `al-zill` | Middle Eastern / Arabic |
+
+The user can request a character by name, alias, or culture: "use the American character", "use Dudu", "use `le-bloc`", etc. All characters follow the same IP contract: deadpan, structurally essential, hand-drawn, absurd worker.
+
+Via the generation script: `python3 scripts/generate_image.py --character the-smudge ...`
 
 ### 1. Digest the Article
 

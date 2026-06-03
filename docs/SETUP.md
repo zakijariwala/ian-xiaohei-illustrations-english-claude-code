@@ -380,6 +380,68 @@ Generate a shot list for this article. No images yet.
 
 ---
 
+## Switching Characters
+
+The default character is **Xiaohei**. All platforms support character selection.
+
+### In a skill prompt (any platform)
+
+```text
+Use character: the-smudge. Generate 4 illustrations for this article.
+<article>
+```
+
+```text
+Use the European character. Generate a shot list for this article.
+<article>
+```
+
+Any of these work: character name, ID, alias, or culture description.
+
+### Via the generation script
+
+```bash
+# See all available characters
+python3 ian-xiaohei-illustrations/scripts/generate_image.py --list-characters
+
+# Use a specific character by ID
+python3 ian-xiaohei-illustrations/scripts/generate_image.py \
+  --character the-smudge \
+  --prompt-file prompt.txt \
+  --out 01-topic.png
+
+# Use an alias
+python3 ian-xiaohei-illustrations/scripts/generate_image.py \
+  --character smudge \
+  --prompt-file prompt.txt \
+  --out 01-topic.png
+
+# Combine with provider selection
+python3 ian-xiaohei-illustrations/scripts/generate_image.py \
+  --character al-zill \
+  --provider dalle \
+  --prompt-file prompt.txt \
+  --out 01-topic.png
+```
+
+### Character ID reference
+
+| ID | Display Name | Culture | Aliases |
+|----|-------------|---------|---------|
+| `xiaohei` | Xiaohei (小黑) | Chinese / East Asian | `xiao-hei`, `小黑` |
+| `chibi-kage` | Chibi Kage (小影) | Japanese | `kage`, `小影` |
+| `kaala` | Kaala (काला) | South / Southeast Asian | `kala` |
+| `kali-tikka` | Kali Tikka | Indian (street / vernacular) | `tikka` |
+| `le-bloc` | Le Bloc / Der Fleck | European | `bloc`, `der-fleck`, `fleck` |
+| `the-smudge` | The Smudge | American | `smudge` |
+| `dudu` | Dudu | West African / Afrofuturist | — |
+| `el-manchon` | El Manchón | Latin American | `manchon` |
+| `al-zill` | Al-Zill (الظل) | Middle Eastern / Arabic | `zill`, `الظل` |
+
+Full descriptors (appearance, personality, prompt injection block): `ian-xiaohei-illustrations/references/characters/<id>.md`
+
+---
+
 ## Image Generation Setup
 
 The skill uses a two-layer approach to image generation:

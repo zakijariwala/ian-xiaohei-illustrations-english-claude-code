@@ -25,6 +25,32 @@ Model overrides: `NANOBANANA_MODEL`, `OPENAI_IMAGE_MODEL`, `IMAGEN_MODEL`
 
 ---
 
+## Characters
+
+Use `--character <id>` (or `-c`) to select an IP character. Default: `xiaohei`.
+
+```bash
+# List all available characters
+python3 generate_image.py --list-characters
+
+# Use a specific character
+python3 generate_image.py --character the-smudge --prompt-file prompt.txt --out img.png
+python3 generate_image.py -c al-zill --prompt-file prompt.txt --out img.png
+
+# Aliases work too
+python3 generate_image.py --character smudge ...
+python3 generate_image.py --character bloc ...
+python3 generate_image.py --character kage ...
+```
+
+Available IDs: `xiaohei`, `chibi-kage`, `kaala`, `kali-tikka`, `le-bloc`, `the-smudge`, `dudu`, `el-manchon`, `al-zill`
+
+The character's `Prompt Injection` block (from `references/characters/<id>.md`) is spliced into the prompt automatically, replacing the default Xiaohei block if present.
+
+Full details: [references/characters/INDEX.md](../references/characters/INDEX.md)
+
+---
+
 ## Usage
 
 ```bash

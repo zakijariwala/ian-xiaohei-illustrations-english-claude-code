@@ -30,6 +30,39 @@ The default visual IP is **Xiaohei** (小黑): a solid black creature with white
 
 ---
 
+## Characters
+
+Nine cultural IP characters are available. Default is **Xiaohei**. Swap via a natural-language request or the `--character` flag.
+
+| ID | Character | Culture |
+|----|-----------|---------|
+| `xiaohei` | Xiaohei (小黑) | Chinese / East Asian |
+| `chibi-kage` | Chibi Kage (小影) | Japanese |
+| `kaala` | Kaala (काला) | South / Southeast Asian |
+| `kali-tikka` | Kali Tikka | Indian (street / vernacular) |
+| `le-bloc` | Le Bloc / Der Fleck | European |
+| `the-smudge` | The Smudge | American |
+| `dudu` | Dudu | West African / Afrofuturist |
+| `el-manchon` | El Manchón | Latin American |
+| `al-zill` | Al-Zill (الظل) | Middle Eastern / Arabic |
+
+All characters share the same IP contract: **deadpan, structurally essential, hand-drawn, absurd worker**. Each brings a different cultural line tradition, body morphology, and personality flavor.
+
+```bash
+# List all characters
+python3 ian-xiaohei-illustrations/scripts/generate_image.py --list-characters
+
+# Generate with a specific character
+python3 ian-xiaohei-illustrations/scripts/generate_image.py \
+  --character the-smudge \
+  --prompt-file prompt.txt \
+  --out 01-topic.png
+```
+
+Full character descriptors: [ian-xiaohei-illustrations/references/characters/](ian-xiaohei-illustrations/references/characters/)
+
+---
+
 ## Image Generation
 
 The skill uses whatever image model is available, in this priority order:
@@ -186,7 +219,7 @@ More examples: [examples/prompts.md](examples/prompts.md)
     │   └── antigravity.yaml            ← Antigravity agent config
     ├── scripts/
     │   ├── generate_image.py           ← Image bindings (Nano Banana/DALL·E/Imagen/Stability)
-    │   └── README.md                   ← Provider setup reference
+    │   └── README.md                   ← Provider + character setup reference
     ├── assets/
     │   └── examples/                   ← Visual calibration only — never copy compositions
     └── references/
@@ -194,7 +227,18 @@ More examples: [examples/prompts.md](examples/prompts.md)
         ├── xiaohei-ip.md
         ├── composition-patterns.md
         ├── prompt-template.md
-        └── qa-checklist.md
+        ├── qa-checklist.md
+        └── characters/
+            ├── INDEX.md                ← All character IDs, cultures, aliases
+            ├── xiaohei.md
+            ├── chibi-kage.md
+            ├── kaala.md
+            ├── kali-tikka.md
+            ├── le-bloc.md
+            ├── the-smudge.md
+            ├── dudu.md
+            ├── el-manchon.md
+            └── al-zill.md
 ```
 
 ---

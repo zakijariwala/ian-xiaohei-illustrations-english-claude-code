@@ -32,6 +32,21 @@
       "entry": "agents/antigravity.yaml"
     }
   },
+  "characters": {
+    "default": "xiaohei",
+    "index": "references/characters/INDEX.md",
+    "available": [
+      { "id": "xiaohei",    "display": "Xiaohei (小黑)",      "culture": "Chinese / East Asian" },
+      { "id": "chibi-kage", "display": "Chibi Kage (小影)",   "culture": "Japanese" },
+      { "id": "kaala",      "display": "Kaala (काला)",         "culture": "South / Southeast Asian" },
+      { "id": "kali-tikka", "display": "Kali Tikka",          "culture": "Indian (street / vernacular)" },
+      { "id": "le-bloc",    "display": "Le Bloc / Der Fleck", "culture": "European" },
+      { "id": "the-smudge", "display": "The Smudge",          "culture": "American" },
+      { "id": "dudu",       "display": "Dudu",                "culture": "West African / Afrofuturist" },
+      { "id": "el-manchon", "display": "El Manchón",          "culture": "Latin American" },
+      { "id": "al-zill",    "display": "Al-Zill (الظل)",      "culture": "Middle Eastern / Arabic" }
+    ]
+  },
   "image_generation": {
     "native_tool": "image_gen",
     "fallback_script": "scripts/generate_image.py",
