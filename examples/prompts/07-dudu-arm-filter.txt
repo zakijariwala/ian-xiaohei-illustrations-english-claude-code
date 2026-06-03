@@ -1,0 +1,48 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+Dudu, a sleek elongated black silhouette figure with a white geometric diamond eye.
+Dudu's arms can extend and morph into the tool being used — arm becomes lever, funnel,
+or path — no separation between worker and work. Body has Adinkra symbol and
+kente-geometry line quality: confident, geometric, each shape carries weight. Dudu
+performs the core action in alignment with a larger pattern — ancient rhythm, futuristic
+system. Unhurried. Purposeful. Not cute.
+
+Theme:
+A data pipeline where the character's arm extends across the stream and becomes the
+filter itself — body and tool are one.
+
+Structure type:
+System Slice.
+
+Core idea:
+Left side: a loose flow of raw data events (dots and small shapes of varied sizes) moves
+right. Dudu stands slightly above-center, one elongated arm extended horizontally into
+the flow. Midway along the arm, it transforms into a geometric Adinkra-pattern mesh grid.
+On the right side of the mesh, only small uniform clean dots emerge — the signal. The
+irregular shapes from the left are gone. Dudu's expression is a single diamond eye, still.
+
+Suggested elements:
+varied raw data dots flowing right / elongated arm morphing into geometric mesh / clean uniform dots on right
+
+Handwritten labels (English, short):
+raw events / arm is the filter / signal / noise gone
+
+Color use:
+Black for Dudu, the arm-filter, and all data elements. Orange for the incoming raw data
+flow arrow. Red for "noise gone" near the dissipated shapes. Blue for "signal" on the
+clean dots emerging right.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 4 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Not a formal diagram. The key visual is the arm becoming the mesh — make that
+transformation clear and geometric. Strange but clean.

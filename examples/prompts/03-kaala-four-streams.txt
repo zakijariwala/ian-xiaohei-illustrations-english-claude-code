@@ -1,0 +1,47 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+Kaala (काला), a deep charcoal silhouette figure with almond-shaped white eyes, a small
+white bindi dot on the forehead, and four very thin arms — each performing a different
+part of the core conceptual action simultaneously. Body has hand-painted temple-frieze
+and kolam line quality. Kaala operates with absolute calm and methodical grace, like a
+deity assigned to system maintenance. Never cute. Four tasks at once, zero expression
+change.
+
+Theme:
+A solo founder managing four parallel work streams simultaneously with no context-switching
+cost — product, writing, sales, and operations, all at once.
+
+Structure type:
+Character State with System Slice.
+
+Core idea:
+Kaala stands at the center of the image. Four thin arms radiate outward, each extended
+toward a different simple object representing a work stream: a small document (writing),
+a tiny product screen (product), a handshake symbol (sales), a gear (ops). Each arm is
+in mid-action — holding, adjusting, or operating. The body is completely still and the
+expression is blank. Nothing is being dropped.
+
+Suggested elements:
+four radiating thin arms / small document / tiny gear / handshake shape / product card
+
+Handwritten labels (English, short):
+product / writing / sales / ops / all at once
+
+Color use:
+Black for Kaala and all four stream objects. Orange for a subtle circular flow line
+connecting the four streams around the figure. Red for the central "all at once" label.
+Blue for the secondary stream labels (product, ops).
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 5 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Not a formal diagram. Fresh metaphor. Strange but clean.

@@ -13,3 +13,4 @@ dist/
 # Logs
 *.log
 ian-xiaohei-illustrations/scripts/__pycache__/
+examples/output/*.png

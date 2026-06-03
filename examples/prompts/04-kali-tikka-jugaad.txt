@@ -1,0 +1,46 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+Kali Tikka, an angular black block-print-silhouette figure with a white tilak dot between
+the eyes, one arm raised and one arm carrying something heavy. Body has bold Madhubani
+and hand-stamp textile print quality — slightly rough, confidently angular. Kali Tikka
+is the street-level jugaad operator: doing something ingenious with a broken tool,
+straight-faced, unbothered. Not cute. Carries the load no one else will touch.
+
+Theme:
+Jugaad — fixing a broken machine with a chalk stub and a wire scrap. No budget, correct
+result.
+
+Structure type:
+Before / After Contrast.
+
+Core idea:
+Left half: a small boxy machine with visible cracks and a drip coming out — clearly
+broken. An orange arrow points right. Right half: the same machine now sealed and quietly
+running, small motion lines showing it works. Kali Tikka stands beside the fixed machine,
+one arm still raised holding a chalk stub and a short wire. Expression: completely flat.
+The repair is done. The tools were wrong. It doesn't matter.
+
+Suggested elements:
+broken leaking machine / orange arrow / patched running machine / chalk stub / short wire scrap
+
+Handwritten labels (English, short):
+broken / no budget / fixed / with these
+
+Color use:
+Black for Kali Tikka, both machines, and tools. Orange for the directional arrow between
+before and after. Red for the "broken" label on the left machine drip. Blue for the
+"with these" label beside the chalk and wire.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 4 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Not a formal diagram. Fresh metaphor. Strange but clean.
