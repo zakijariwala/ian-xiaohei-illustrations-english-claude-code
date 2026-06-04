@@ -18,7 +18,7 @@ All examples follow the same visual rules: 16:9, pure white, hand-drawn, lots of
 | 1 | [Xiaohei (小黑)](#1-xiaohei) | Chinese / East Asian | AI content workflow — one input, many outputs |
 | 2 | [Chibi Kage (小影)](#2-chibi-kage) | Japanese | Second brain — scattered notes become a query-able net |
 | 3 | [Kaala (काला)](#3-kaala) | South / Southeast Asian | Async systems — four streams handled in parallel |
-| 4 | [Kali Tikka](#4-kali-tikka) | Indian (street / vernacular) | Jugaad — building with broken tools |
+| 4 | [Kali Tikka](#4-kali-tikka) | Indian (block-print / folk art) | One-to-many reuse — one carved block, many prints |
 | 5 | [Le Bloc / Der Fleck](#5-le-bloc) | European | Bureaucratic pipeline — absurd precision |
 | 6 | [The Smudge](#6-the-smudge) | American | Deployment — the build that has to ship |
 | 7 | [Dudu](#7-dudu) | West African / Afrofuturist | Data pipeline — arm becomes the filter |
@@ -276,21 +276,21 @@ python3 ian-xiaohei-illustrations/scripts/generate_image.py \
 
 ## 4. Kali Tikka
 
-**Character:** Kali Tikka — Indian (street / vernacular)
-**Article concept:** Jugaad thinking — solving a real problem with the wrong tool, zero budget, and complete confidence
-**Structure type:** Before / After Contrast
+**Character:** Kali Tikka — Indian (block-print / folk art)
+**Article concept:** Reuse — carve one good idea once, then stamp it into many consistent outputs
+**Structure type:** One-to-Many Reuse
 
 ### Shot List Entry
 
 | Field | Value |
 |-------|-------|
-| **Paragraph placement** | After the section arguing that constraint produces better solutions than resources |
-| **Theme** | Fixing the machine with zip ties and chalk — the wrong tools, the right result |
-| **Core idea** | Left side: a broken machine leaking. Right side: same machine sealed and running, Kali Tikka walks away with one arm still raised |
-| **Structure type** | Before / After Contrast |
-| **What Kali Tikka does** | On the right side of the image, walks away from a now-running machine, one arm raised holding a chalk stub and a bit of wire — the actual repair tools |
-| **Suggested elements** | Broken leaking machine (left) · patched running machine (right) · chalk stub · wire scrap |
-| **Annotations** | broken / no budget / fixed / with these |
+| **Paragraph placement** | After the section arguing that one well-made template beats re-doing the work each time |
+| **Theme** | One carved block, many identical prints — the block-print logic of reuse |
+| **Core idea** | Kali Tikka holds a single carved printing block and stamps a row of identical marks across the canvas |
+| **Structure type** | One-to-Many Reuse |
+| **What Kali Tikka does** | Presses one carved block down, lifting it to reveal a clean repeating motif; a row of identical stamped prints trails to the right |
+| **Suggested elements** | One carved printing block · a row of identical stamped motifs · fresh ink edge · one print still half-pressed |
+| **Annotations** | carve once / press / again / again |
 
 ### Generation Prompt
 
@@ -305,36 +305,39 @@ background, no commercial vector style, no PPT infographic look, no cute mascot 
 no children's illustration, no realistic UI.
 
 IP character required:
-Kali Tikka, an angular black block-print-silhouette figure with a white tilak dot between
-the eyes, one arm raised and one arm carrying something heavy. Body has bold Madhubani
-and hand-stamp textile print quality — slightly rough, confidently angular. Kali Tikka
-is the street-level jugaad operator: doing something ingenious with a broken tool,
-straight-faced, unbothered. Not cute. Carries the load no one else will touch.
+Kali Tikka, an angular black wood-block-print-silhouette figure with a small white
+registration dot between the eyes (a block-print alignment mark), arms gesturing boldly —
+one raised, one positioning a tool or stamp. Body has bold Madhubani and hand-stamp
+textile-print quality: slightly rough, confidently angular, repeating motifs. Kali Tikka
+is an inventive improviser — finding the bold, direct, decisive way to make the structure
+work, straight-faced and unbothered. Not cute. Composes the action like stamping a
+textile, one confident mark at a time.
 
 Theme:
-Jugaad — fixing a broken machine with a chalk stub and a wire scrap. No budget, correct
-result.
+One carved block, many identical prints — the logic of making something once and reusing
+it everywhere.
 
 Structure type:
-Before / After Contrast.
+One-to-Many Reuse.
 
 Core idea:
-Left half: a small boxy machine with visible cracks and a drip coming out — clearly
-broken. An orange arrow points right. Right half: the same machine now sealed and quietly
-running, small motion lines showing it works. Kali Tikka stands beside the fixed machine,
-one arm still raised holding a chalk stub and a short wire. Expression: completely flat.
-The repair is done. The tools were wrong. It doesn't matter.
+Kali Tikka holds a single carved printing block in one raised arm and presses it down with
+the other onto a long horizontal strip. Where it has already pressed, a row of identical
+clean motifs marches off to the right. The block is just lifting off the newest print, a
+small ink edge still connecting them. One print further right is only half-stamped, mid-
+press. Expression: completely flat. Carve once, press forever.
 
 Suggested elements:
-broken leaking machine / orange arrow / patched running machine / chalk stub / short wire scrap
+one carved printing block / row of identical stamped motifs / fresh ink edge lifting off /
+one half-pressed print / orange arrow showing the repeat direction
 
 Handwritten labels (English, short):
-broken / no budget / fixed / with these
+carve once / press / again / again
 
 Color use:
-Black for Kali Tikka, both machines, and tools. Orange for the directional arrow between
-before and after. Red for the "broken" label on the left machine drip. Blue for the
-"with these" label beside the chalk and wire.
+Black for Kali Tikka, the block, and the printed motifs. Orange for the small arrow showing
+the repeat direction. Red for the "carve once" label by the block. Blue for the "again"
+notes along the repeated prints.
 
 Constraints:
 One image explains only one core structure. Keep the main subject around 40%–60% of
@@ -348,11 +351,11 @@ Not a formal diagram. Fresh metaphor. Strange but clean.
 ```bash
 python3 ian-xiaohei-illustrations/scripts/generate_image.py \
   --character kali-tikka \
-  --prompt-file examples/prompts/04-kali-tikka-jugaad.txt \
-  --out examples/output/04-kali-tikka-jugaad.png
+  --prompt-file examples/prompts/04-kali-tikka-block-print.txt \
+  --out examples/output/04-kali-tikka-block-print.png
 ```
 
-**Save path:** `examples/output/04-kali-tikka-jugaad.png`
+**Save path:** `examples/output/04-kali-tikka-block-print.png`
 
 ---
 
@@ -786,7 +789,7 @@ export GEMINI_API_KEY="your-key"   # or OPENAI_API_KEY / STABILITY_API_KEY
 python3 scripts/generate_image.py --character xiaohei    --prompt-file ../examples/prompts/01-xiaohei-content-press.txt    --out ../examples/output/01-xiaohei-content-press.png
 python3 scripts/generate_image.py --character chibi-kage --prompt-file ../examples/prompts/02-chibi-kage-knowledge-loom.txt --out ../examples/output/02-chibi-kage-knowledge-loom.png
 python3 scripts/generate_image.py --character kaala      --prompt-file ../examples/prompts/03-kaala-four-streams.txt        --out ../examples/output/03-kaala-four-streams.png
-python3 scripts/generate_image.py --character kali-tikka --prompt-file ../examples/prompts/04-kali-tikka-jugaad.txt         --out ../examples/output/04-kali-tikka-jugaad.png
+python3 scripts/generate_image.py --character kali-tikka --prompt-file ../examples/prompts/04-kali-tikka-block-print.txt   --out ../examples/output/04-kali-tikka-block-print.png
 python3 scripts/generate_image.py --character le-bloc    --prompt-file ../examples/prompts/05-le-bloc-approval-loop.txt     --out ../examples/output/05-le-bloc-approval-loop.png
 python3 scripts/generate_image.py --character the-smudge --prompt-file ../examples/prompts/06-the-smudge-ship-it.txt        --out ../examples/output/06-the-smudge-ship-it.png
 python3 scripts/generate_image.py --character dudu       --prompt-file ../examples/prompts/07-dudu-arm-filter.txt           --out ../examples/output/07-dudu-arm-filter.png

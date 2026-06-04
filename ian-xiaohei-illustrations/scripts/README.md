@@ -72,7 +72,7 @@ controls which IP is used when `--character` is not specified.
 ```json
 // settings.json
 {
-  "default_character": "the-smudge",
+  "default_character": "xiaohei",
   "_note": "Change via --set-default or edit this file directly"
 }
 ```

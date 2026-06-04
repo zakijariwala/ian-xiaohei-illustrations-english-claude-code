@@ -1,0 +1,49 @@
+Generate one standalone 16:9 horizontal article illustration.
+
+Visual DNA:
+Pure white background. Minimalist black hand-drawn line art. Slightly wobbly pen lines.
+Lots of empty white space. Sparse red/orange/blue handwritten English annotations. Clean
+absurd product-sketch feeling. No gradients, no shadows, no paper texture, no complex
+background, no commercial vector style, no PPT infographic look, no cute mascot poster,
+no children's illustration, no realistic UI.
+
+IP character required:
+Kali Tikka, an angular black wood-block-print-silhouette figure with a small white
+registration dot between the eyes (a block-print alignment mark), arms gesturing boldly —
+one raised, one positioning a tool or stamp. Body has bold Madhubani and hand-stamp
+textile-print quality: slightly rough, confidently angular, repeating motifs. Kali Tikka
+is an inventive improviser — finding the bold, direct, decisive way to make the structure
+work, straight-faced and unbothered. Not cute. Composes the action like stamping a
+textile, one confident mark at a time.
+
+Theme:
+One carved block, many identical prints — the logic of making something once and reusing
+it everywhere.
+
+Structure type:
+One-to-Many Reuse.
+
+Core idea:
+Kali Tikka holds a single carved printing block in one raised arm and presses it down with
+the other onto a long horizontal strip. Where it has already pressed, a row of identical
+clean motifs marches off to the right. The block is just lifting off the newest print, a
+small ink edge still connecting them. One print further right is only half-stamped, mid-
+press. Expression: completely flat. Carve once, press forever.
+
+Suggested elements:
+one carved printing block / row of identical stamped motifs / fresh ink edge lifting off /
+one half-pressed print / orange arrow showing the repeat direction
+
+Handwritten labels (English, short):
+carve once / press / again / again
+
+Color use:
+Black for Kali Tikka, the block, and the printed motifs. Orange for the small arrow showing
+the repeat direction. Red for the "carve once" label by the block. Blue for the "again"
+notes along the repeated prints.
+
+Constraints:
+One image explains only one core structure. Keep the main subject around 40%–60% of
+the canvas. Preserve at least 35% blank white space. Use at most 4 short handwritten
+labels. Do not write a title in the top-left corner. Do not write the structure type.
+Not a formal diagram. Fresh metaphor. Strange but clean.

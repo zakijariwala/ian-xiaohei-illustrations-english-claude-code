@@ -43,7 +43,7 @@ Available characters (see `references/characters/INDEX.md` for full list):
 | `xiaohei` | Chinese / East Asian (default) |
 | `chibi-kage` | Japanese |
 | `kaala` | South / Southeast Asian |
-| `kali-tikka` | Indian (street / vernacular) |
+| `kali-tikka` | Indian (block-print / folk art) |
 | `le-bloc` | European |
 | `the-smudge` | American |
 | `dudu` | West African / Afrofuturist |
@@ -143,7 +143,7 @@ After generating, check `references/qa-checklist.md`. If any of these issues app
 - Xiaohei is only decoration
 - Image is too crowded
 - Looks like a flowchart or PPT
-- Too much Chinese text or serious typos
+- Stray non-English text or serious typos in the annotations
 - Top-left corner shows a title like "Common Pitfalls / Workflow / System Architecture"
 - Art style is too cute, childish, or stiff
 - Background is not clean white

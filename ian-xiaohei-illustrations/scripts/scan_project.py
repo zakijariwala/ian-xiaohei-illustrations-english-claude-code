@@ -36,9 +36,6 @@ SKIP_NAMES = {
 # Heading pattern for Markdown and plain text.
 HEADING_RE = re.compile(r"^#{1,3}\s+(.+)$", re.MULTILINE)
 
-# Paragraph pattern: non-empty lines of reasonable length.
-PARA_RE = re.compile(r"(?:^|\n)([A-Z][^\n]{40,300})(?=\n|$)")
-
 # Cognitive anchor signals in headings/paragraphs.
 ANCHOR_SIGNALS = [
     "why", "how", "when", "problem", "solution", "before", "after",
@@ -122,7 +119,14 @@ def analyse_file(path):
     anchors = extract_anchor_candidates(text)
     score = score_file(path, text)
     word_count = len(text.split())
-    rel_path = os.path.relpath(path)
+    try:
+        rel_path = os.path.relpath(path)
+        # If the file is outside cwd, relpath returns ../../.. noise — prefer absolute.
+        if rel_path.startswith(".."):
+            rel_path = os.path.abspath(path)
+    except ValueError:
+        # Windows: relpath across drives raises ValueError.
+        rel_path = os.path.abspath(path)
     return {
         "path": rel_path,
         "word_count": word_count,
@@ -188,6 +192,9 @@ def main():
             pass
 
     if args.file:
+        if not os.path.isfile(args.file):
+            print(f"Error: file not found: {args.file}", file=sys.stderr)
+            return 2
         paths = [args.file]
     else:
         scan_root = os.path.abspath(args.directory)

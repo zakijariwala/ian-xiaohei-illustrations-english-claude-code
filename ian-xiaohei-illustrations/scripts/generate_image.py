@@ -153,8 +153,11 @@ def gen_dalle(prompt):
     if item.get("b64_json"):
         return base64.b64decode(item["b64_json"])
     if item.get("url"):
-        with urllib.request.urlopen(item["url"], timeout=180) as r:
-            return r.read()
+        try:
+            with urllib.request.urlopen(item["url"], timeout=180) as r:
+                return r.read()
+        except urllib.error.URLError as e:
+            raise RuntimeError(f"Failed to download image from OpenAI URL: {e}") from None
     raise RuntimeError(f"No image returned by OpenAI. Raw response:\n{json.dumps(result)[:800]}")
 
 
@@ -214,7 +217,7 @@ CHARACTERS = {
     "xiaohei":     ("Xiaohei (小黑)",       "Chinese / East Asian"),
     "chibi-kage":  ("Chibi Kage (小影)",    "Japanese"),
     "kaala":       ("Kaala (काला)",          "South / Southeast Asian"),
-    "kali-tikka":  ("Kali Tikka",           "Indian (street / vernacular)"),
+    "kali-tikka":  ("Kali Tikka",           "Indian (block-print / folk art)"),
     "le-bloc":     ("Le Bloc / Der Fleck",  "European"),
     "the-smudge":  ("The Smudge",           "American"),
     "dudu":        ("Dudu",                 "West African / Afrofuturist"),
@@ -273,8 +276,9 @@ def _save_settings(data):
 def get_default_character():
     """Return the configured default character ID, falling back to 'xiaohei'."""
     settings = _load_settings()
-    raw = settings.get("default_character", "xiaohei")
-    return CHARACTER_ALIASES.get(raw.lower().strip(), raw.lower().strip())
+    # Coerce to str: a hand-edited settings.json may hold a non-string value.
+    raw = str(settings.get("default_character", "xiaohei") or "xiaohei").lower().strip()
+    return CHARACTER_ALIASES.get(raw, raw)
 
 
 def _load_character_injection(char_id):
@@ -310,9 +314,11 @@ def inject_character(prompt, char_id):
     char_block = f"IP character required:\n{injection}"
 
     # Replace existing IP character block (any character's block).
+    # Use a function replacement so backslashes / \g-style sequences in the
+    # character text are treated literally, not as regex backreferences.
     replaced = re.sub(
         r"IP character(?: required)?:.*?(?=\n\n|\nTheme:|\nStructure type:|\Z)",
-        char_block,
+        lambda _: char_block,
         prompt,
         flags=re.DOTALL,
     )
@@ -365,7 +371,18 @@ def main():
 
     if args.list_providers:
         found = available_providers()
-        print("Available (key present):", ", ".join(found) if found else "(none)")
+        if found:
+            print("Available (key present):", ", ".join(found))
+        else:
+            print("Available (key present): (none)")
+            print(
+                "\nNo provider key is set yet. Set one of these, then re-run:\n"
+                "  export GEMINI_API_KEY=...    # Nano Banana / Imagen  (free tier: aistudio.google.com/apikey)\n"
+                "  export OPENAI_API_KEY=...    # DALL-E\n"
+                "  export STABILITY_API_KEY=... # Stability  (also: pip install requests)\n"
+                "\nNo API key at all? Use a native image tool (Claude Code / Codex) or a\n"
+                "free web UI — see docs/GENERATE.md."
+            )
         return 0
 
     if args.list_characters:
@@ -429,6 +446,8 @@ def main():
     char_name = CHARACTERS[char_id][0]
     print(f"[generate_image] provider={canonical} character={char_id} ({char_name}) -> {args.out}", file=sys.stderr)
     image_bytes = GENERATORS[canonical](prompt)
+    if not image_bytes:
+        raise RuntimeError(f"Provider '{canonical}' returned no image data.")
 
     out_dir = os.path.dirname(os.path.abspath(args.out))
     if out_dir:

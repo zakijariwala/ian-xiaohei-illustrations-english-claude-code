@@ -39,7 +39,7 @@
       { "id": "xiaohei",    "display": "Xiaohei (小黑)",      "culture": "Chinese / East Asian" },
       { "id": "chibi-kage", "display": "Chibi Kage (小影)",   "culture": "Japanese" },
       { "id": "kaala",      "display": "Kaala (काला)",         "culture": "South / Southeast Asian" },
-      { "id": "kali-tikka", "display": "Kali Tikka",          "culture": "Indian (street / vernacular)" },
+      { "id": "kali-tikka", "display": "Kali Tikka",          "culture": "Indian (block-print / folk art)" },
       { "id": "le-bloc",    "display": "Le Bloc / Der Fleck", "culture": "European" },
       { "id": "the-smudge", "display": "The Smudge",          "culture": "American" },
       { "id": "dudu",       "display": "Dudu",                "culture": "West African / Afrofuturist" },
@@ -58,9 +58,13 @@
     },
     "auto_detect_order": ["nanobanana", "dalle", "imagen", "stability"]
   },
+  "project_scanner": {
+    "script": "scripts/scan_project.py",
+    "note": "Run when no article is supplied to discover and rank article candidates in the working directory."
+  },
   "references": [
     "references/style-dna.md",
-    "references/xiaohei-ip.md",
+    "references/characters/INDEX.md",
     "references/composition-patterns.md",
     "references/prompt-template.md",
     "references/qa-checklist.md"

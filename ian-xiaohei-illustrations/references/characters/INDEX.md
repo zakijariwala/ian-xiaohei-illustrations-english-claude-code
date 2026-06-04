@@ -12,7 +12,7 @@ Default character: **xiaohei**
 | `xiaohei` | Xiaohei (小黑) | Chinese / East Asian | `xiaohei.md` |
 | `chibi-kage` | Chibi Kage (小影) | Japanese | `chibi-kage.md` |
 | `kaala` | Kaala (काला) | South / Southeast Asian | `kaala.md` |
-| `kali-tikka` | Kali Tikka | Indian (street / vernacular) | `kali-tikka.md` |
+| `kali-tikka` | Kali Tikka | Indian (block-print / folk art) | `kali-tikka.md` |
 | `le-bloc` | Le Bloc / Der Fleck | European | `le-bloc.md` |
 | `the-smudge` | The Smudge | American | `the-smudge.md` |
 | `dudu` | Dudu | West African / Afrofuturist | `dudu.md` |
@@ -20,6 +20,30 @@ Default character: **xiaohei**
 | `al-zill` | Al-Zill (الظل) | Middle Eastern / Arabic | `al-zill.md` |
 
 ---
+
+## How we approached the cultural variants
+
+These variants are a celebration of **drawing traditions**, not a casting of
+ethnic stereotypes. A few principles we hold ourselves to:
+
+- **The character is one shared idea: a solid black ink/shadow mark that grew
+  limbs and got a job.** Every variant — including the original — is "black"
+  in the ink sense. The names that mean "black" or "shadow" (Kaala, Al-Zill,
+  Dudu) reference that ink/shadow conceit, never skin or identity.
+- **We borrow line traditions, not life circumstances.** What changes between
+  variants is the *visual grammar* — ink-brush, ukiyo-e woodblock, kolam,
+  Madhubani/block-print, Bauhaus, WPA poster, Adinkra/kente, grabado, Arabic
+  calligraphy/geometry. We deliberately avoid mapping any culture onto a
+  socioeconomic role, occupation, or temperament cliché.
+- **Every variant can play any role.** They are interchangeable deadpan workers;
+  none is slotted into "the improviser," "the laborer," or "the mystic." The
+  flavor is in the *strokes*, not in a backstory about the people.
+- **No sacred symbols as decoration.** Distinguishing marks are described as
+  art-tradition flourishes (a kolam register dot, a block-print alignment mark),
+  not religious markers.
+
+If a descriptor ever reads as a stereotype rather than a drawing style, treat it
+as a bug — open an issue or a PR.
 
 ## Shared IP Contract
 

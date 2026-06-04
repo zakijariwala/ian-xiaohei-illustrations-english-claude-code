@@ -1,35 +1,40 @@
 ---
 id: kali-tikka
 display_name: "Kali Tikka"
-culture: Indian (street / vernacular)
+culture: Indian (block-print / folk art)
 aliases: [kali-tikka, tikka]
 ---
 
-# Kali Tikka — Indian (street / vernacular)
+# Kali Tikka — Indian (block-print / folk art)
+
+> Visual lineage: Madhubani painting and wood-block textile printing. The name
+> plays on "kali" (black ink) and the small printed mark ("tikka") used to align
+> a block — it refers to the ink/blob conceit, not to people or identity.
 
 ## Visual Descriptors
 
-- Angular black form, block-print textile silhouette quality
-- White tilak dot between the eyes (the defining mark)
-- One arm raised, one arm perpetually carrying something heavy
-- Body morphs: square tiffin-box body, terracotta block, old printing block stamp, chai glass silhouette
-- Madhubani and block-print line weight — bold, slightly rough, repeating motif quality
-- Slightly stockier than Xiaohei — built for load-bearing
+- Angular black form, wood-block textile silhouette quality
+- Small white registration dot between the eyes — a block-print alignment mark (a printing flourish, not a religious symbol)
+- Arms gesture boldly — one often raised, one positioning a tool or stamp
+- Body morphs: square tiffin-box body, terracotta block, old printing block, stamped-motif tile
+- Madhubani and block-print line weight — bold, slightly rough, repeating-motif quality
+- Slightly stockier than Xiaohei — solid, planted
 
 ## Personality
 
-- Street-level pragmatist
-- Making the entire system work from the bottom of the stack, unbothered
-- Jugaad (resourceful improvisation) energy — doing something ingenious with a broken tool and a straight face
-- No ideology, no complaint — just: this needs to work, so it will work
-- The person who fixes the generator at 2am with zip ties and chalk
+- An inventive improviser — finds the bold, direct, slightly unexpected way to make the structure work
+- Composes the action the way a block-print composes a textile: confident, repeating, decisive marks
+- Unbothered, straight-faced, no wasted motion
+- Like every character in this set: an absurd worker, fully committed, deadpan throughout
 
 ## Prompt Injection
 
 ```
-IP character: Kali Tikka, an angular black block-print-silhouette figure with a white
-tilak dot between the eyes, one arm raised and one arm carrying something heavy. Body has
-bold Madhubani and hand-stamp textile print quality — slightly rough, confidently angular.
-Kali Tikka is the street-level jugaad operator: doing something ingenious with a broken
-tool, straight-faced, unbothered. Not cute. Carries the load no one else will touch.
+IP character: Kali Tikka, an angular black wood-block-print-silhouette figure with a
+small white registration dot between the eyes (a block-print alignment mark), arms
+gesturing boldly — one raised, one positioning a tool or stamp. Body has bold Madhubani
+and hand-stamp textile-print quality: slightly rough, confidently angular, repeating
+motifs. Kali Tikka is an inventive improviser — finding the bold, direct, decisive way
+to make the structure work, straight-faced and unbothered. Not cute. Composes the action
+like stamping a textile, one confident mark at a time.
 ```

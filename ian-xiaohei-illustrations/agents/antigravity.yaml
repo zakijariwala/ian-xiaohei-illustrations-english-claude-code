@@ -22,7 +22,7 @@ skill:
   references:
     - path: ../references/style-dna.md
       load: on_demand
-    - path: ../references/xiaohei-ip.md
+    - path: ../references/characters/INDEX.md
       load: on_demand
     - path: ../references/composition-patterns.md
       load: on_demand
@@ -42,6 +42,11 @@ skill:
   image_generation:
     fallback_script: ../scripts/generate_image.py
     auto_detect_order: [nanobanana, dalle, imagen, stability]
+    character_flag: "--character <id>"
+
+  project_scanner:
+    script: ../scripts/scan_project.py
+    note: Run when no article is supplied to discover and rank article candidates in the working directory.
 
   output:
     save_path: "assets/{article-slug}-illustrations/"

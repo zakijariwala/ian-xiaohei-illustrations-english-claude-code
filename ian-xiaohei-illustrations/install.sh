@@ -15,7 +15,7 @@ CHAR_NAMES=(
   "Xiaohei (小黑)       — Chinese / East Asian         (original)"
   "Chibi Kage (小影)    — Japanese"
   "Kaala (काला)        — South / Southeast Asian"
-  "Kali Tikka          — Indian (street / vernacular)"
+  "Kali Tikka          — Indian (block-print / folk art)"
   "Le Bloc / Der Fleck — European"
   "The Smudge          — American"
   "Dudu                — West African / Afrofuturist"
@@ -32,11 +32,47 @@ detect_platform() {
   fi
 }
 
+# INSTALL_MODE is set by sync_skill to "fresh" or "reinstall".
+INSTALL_MODE="fresh"
+
+# ---- Idempotent copy ----
+# Copies the skill into ${dest}. Safe whether or not ${dest} already exists
+# (avoids the cp -R nesting trap). On re-install, preserves the user's
+# settings.json so their chosen default character survives upgrades.
+sync_skill() {
+  local dest="$1"
+
+  # Safety: never delete the source we are copying from.
+  if [[ "$(cd "${SKILL_DIR}" && pwd -P)" == "$(cd "$(dirname "${dest}")" 2>/dev/null && pwd -P)/$(basename "${dest}")" ]]; then
+    echo "Refusing to install onto the source directory: ${dest}" >&2
+    exit 1
+  fi
+
+  mkdir -p "$(dirname "${dest}")"
+
+  local saved_settings=""
+  if [[ -d "${dest}" ]]; then
+    INSTALL_MODE="reinstall"
+    if [[ -f "${dest}/settings.json" ]]; then
+      saved_settings="$(mktemp)"
+      cp "${dest}/settings.json" "${saved_settings}"
+    fi
+    rm -rf "${dest}"
+  fi
+
+  mkdir -p "${dest}"
+  cp -R "${SKILL_DIR}/." "${dest}/"
+
+  if [[ -n "${saved_settings}" ]]; then
+    cp "${saved_settings}" "${dest}/settings.json"
+    rm -f "${saved_settings}"
+  fi
+}
+
 # ---- Install functions ----
 install_claude() {
   DEST="${HOME}/.claude/skills/${SKILL_NAME}"
-  mkdir -p "${HOME}/.claude/skills"
-  cp -R "${SKILL_DIR}" "${DEST}"
+  sync_skill "${DEST}"
   echo "Installed to: ${DEST}"
   echo "Invoke in Claude Code: /ian-xiaohei-illustrations"
 }
@@ -44,16 +80,14 @@ install_claude() {
 install_codex() {
   CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
   DEST="${CODEX_HOME}/skills/${SKILL_NAME}"
-  mkdir -p "${CODEX_HOME}/skills"
-  cp -R "${SKILL_DIR}" "${DEST}"
+  sync_skill "${DEST}"
   echo "Installed to: ${DEST}"
   echo "Invoke in Codex: Use \$ian-xiaohei-illustrations ..."
 }
 
 install_gemini() {
   DEST="${HOME}/.gemini/skills/${SKILL_NAME}"
-  mkdir -p "${HOME}/.gemini/skills"
-  cp -R "${SKILL_DIR}" "${DEST}"
+  sync_skill "${DEST}"
   echo "Installed to: ${DEST}"
 }
 
@@ -67,15 +101,26 @@ get_dest() {
 }
 
 # ---- First-run character selector ----
-# Called after install. Skipped if settings.json already exists (re-install / upgrade).
+# Called after install. On re-install the user's existing default is preserved
+# (sync_skill restored their settings.json), so we just report it and return.
+# On a non-interactive shell (CI, curl|bash) we keep the shipped default.
 ask_default_character() {
   local dest="$1"
   local settings_file="${dest}/settings.json"
 
-  if [[ -f "${settings_file}" ]]; then
+  if [[ "${INSTALL_MODE}" == "reinstall" ]]; then
     current=$(python3 -c "import json; d=json.load(open('${settings_file}')); print(d.get('default_character','xiaohei'))" 2>/dev/null || echo "xiaohei")
     echo ""
-    echo "Settings already exist (default character: ${current})."
+    echo "Upgrade detected — kept your existing default character: ${current}"
+    echo "To change it: python3 ${dest}/scripts/generate_image.py --set-default <id>"
+    return
+  fi
+
+  # Non-interactive (no TTY): keep the shipped default, don't block the install.
+  if [[ ! -t 0 ]]; then
+    current=$(python3 -c "import json; d=json.load(open('${settings_file}')); print(d.get('default_character','xiaohei'))" 2>/dev/null || echo "xiaohei")
+    echo ""
+    echo "Non-interactive install — default character: ${current}"
     echo "To change it: python3 ${dest}/scripts/generate_image.py --set-default <id>"
     return
   fi

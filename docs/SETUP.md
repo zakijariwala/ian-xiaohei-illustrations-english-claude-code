@@ -434,7 +434,7 @@ python3 ian-xiaohei-illustrations/scripts/generate_image.py \
 | `xiaohei` | Xiaohei (小黑) | Chinese / East Asian | `xiao-hei`, `小黑` |
 | `chibi-kage` | Chibi Kage (小影) | Japanese | `kage`, `小影` |
 | `kaala` | Kaala (काला) | South / Southeast Asian | `kala` |
-| `kali-tikka` | Kali Tikka | Indian (street / vernacular) | `tikka` |
+| `kali-tikka` | Kali Tikka | Indian (block-print / folk art) | `tikka` |
 | `le-bloc` | Le Bloc / Der Fleck | European | `bloc`, `der-fleck`, `fleck` |
 | `the-smudge` | The Smudge | American | `smudge` |
 | `dudu` | Dudu | West African / Afrofuturist | — |

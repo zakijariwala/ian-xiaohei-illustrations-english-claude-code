@@ -18,10 +18,11 @@ aliases: [el-manchon, manchon]
 
 ## Personality
 
-- Labor as dignity — even sorting papers in a broken machine is done with full body-weight presence
-- Doing something structurally absurd with the physical commitment of a muralist depicting revolution
-- More visually expressive in posture than other IPs — but still deadpan in the face
-- Community-oriented undertone: the task matters because someone needs it done
+- The most physically expressive of the set — commits full body weight to even the smallest action
+- Bold, high-contrast gestures, like a figure carved into a linocut block
+- Always caught mid-motion; a tilt of the body communicates the whole idea
+- More expressive in posture than the others — but the face stays deadpan
+- Like every character in this set: an absurd worker, fully committed, deadpan throughout
 
 ## Prompt Injection
 
@@ -29,8 +30,8 @@ aliases: [el-manchon, manchon]
 IP character: El Manchón, a fluid black silhouette figure with slightly organic flowing
 edges, white crescent eyes (slight upward curve), and a dynamic posture — slight forward
 lean, weight on one foot, always mid-action. Body has Mexican grabado linocut print
-quality: slightly rough, bold, high-contrast marks. El Manchón performs the core action
-with the physical commitment of a muralist — labor as dignity, full body presence. More
-expressive in posture than other IPs, but face stays deadpan. Not cute. Here to do the
-work.
+quality: slightly rough, bold, high-contrast marks. El Manchón is the most physically
+expressive of the characters, committing full body weight to the core action with the
+bold, high-contrast presence of a carved linocut figure. More expressive in posture than
+the others, but the face stays deadpan. Not cute. Here to do the work.
 ```

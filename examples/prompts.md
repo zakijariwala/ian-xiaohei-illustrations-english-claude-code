@@ -1,83 +1,94 @@
 # Prompt Examples
 
-下面这些 prompt 可以直接复制到 Codex 里使用。
+Copy-paste prompts you can hand to your agent. Replace the invocation prefix with
+your platform's syntax — `/ian-xiaohei-illustrations` (Claude Code),
+`$ian-xiaohei-illustrations` (Codex), or just describe the task to any agent
+that has the skill loaded.
 
-## 只做配图规划
+For fully worked, per-character examples (with generation commands and prompt
+files), see [`character-examples.md`](character-examples.md).
+
+## Planning only (shot list)
 
 ```text
-Use $ian-xiaohei-illustrations 先不要生图。
-请分析下面这篇文章哪里值得配图，输出 5 张左右的 shot list。
-每张图写清楚：
-- 放在哪个段落后
-- 图的主题
-- 核心意思
-- 结构类型
-- 小黑在图里做什么
-- 建议元素
-- 建议中文标注词
+/ian-xiaohei-illustrations Don't generate images yet.
+Analyze where this article would benefit from illustration and output a shot list
+of about 5 images. For each image, specify:
+- Which paragraph it follows
+- The image's theme
+- Core meaning
+- Structure type
+- What the character is doing in the image
+- Suggested elements
+- Suggested annotation words (English)
 
-<粘贴文章>
+<paste article>
 ```
 
-## 文章正文配图
+## Body illustrations for an article
 
 ```text
-Use $ian-xiaohei-illustrations 把下面这篇文章生成 4 张小黑怪诞正文配图。
-要求：16:9 横版、纯白背景、黑色手绘线稿、少量红橙蓝中文手写批注。
-每张图只讲一个核心结构，不要做 PPT 信息图，不要可爱卡通。
+/ian-xiaohei-illustrations Generate 4 absurd body illustrations for the article below.
+Requirements: 16:9 landscape, pure white background, black hand-drawn line art,
+sparse red/orange/blue handwritten English annotations.
+Each image explains only one core structure. No PPT infographics, no cute cartoons.
 
-<粘贴文章>
+<paste article>
 ```
 
-## 长文配图策略
+## Long-form illustration strategy
 
 ```text
-Use $ian-xiaohei-illustrations 给这篇长文做配图策略。
-不要平均配图，只挑认知锚点：核心判断、输入输出闭环、前后对比、常见坑、承接路径。
-默认 6-8 张，先输出 shot list，不要生成图片。
+/ian-xiaohei-illustrations Plan the illustrations for this long article.
+Don't distribute images evenly — pick only cognitive anchors: core judgments,
+input-output loops, before/after contrasts, common pitfalls, handoff paths.
+Default 6–8 images. Output a shot list first; don't generate images yet.
 
-<粘贴文章>
+<paste article>
 ```
 
-## 单个观点生成一张图
+## One image for a single idea
 
 ```text
-Use $ian-xiaohei-illustrations 为这个观点生成一张 16:9 正文配图：
+/ian-xiaohei-illustrations Generate one 16:9 body illustration for this idea:
 
-信任不是喊出来的，而是一块证据一块证据铺过去。
+Trust isn't shouted — it's laid down one small piece of evidence at a time.
 
-画面要怪诞但清爽，小黑必须承担核心动作。
-中文标注最多 5 个，短一点。
+The image should be absurd but clean. The character must carry the core action.
+Use at most 5 short English annotations.
 ```
 
-## 工作流主题
+## Workflow theme
 
 ```text
-Use $ian-xiaohei-illustrations 为“把一条原始素材加工成流量、信任、转化三种内容”生成一张图。
-不要画正式流程图，不要复刻一鱼多吃旧案例。
-请重新发明一个新的低科技隐喻，让小黑参与核心动作。
+/ian-xiaohei-illustrations Generate one image for "turning a single raw material
+into three kinds of content: reach, trust, and conversion."
+Don't draw a formal flowchart, and don't reuse the old "one fish, many dishes" case.
+Invent a fresh low-tech metaphor and let the character drive the core action.
 ```
 
-## 改图：去掉标题
+## Edit: remove a title
 
 ```text
-Use $ian-xiaohei-illustrations 帮我编辑这张图。
-去掉左上角的“Workflow / 流程图”标题和下划线，其他内容保持不变。
-不要新增任何文字或物件。
+/ian-xiaohei-illustrations Edit this image for me.
+Remove the top-left "Workflow" title and its underline. Keep everything else
+unchanged. Don't add any new text or objects.
 ```
 
-## 改图：增强小黑参与感
+## Edit: make the character more involved
 
 ```text
-Use $ian-xiaohei-illustrations 这张图方向对，但小黑有点像装饰。
-请保持核心意思不变，重生成一版：让小黑成为真正推动结构运转的人。
-画面更怪一点，但仍然纯白、清爽、少字。
+/ian-xiaohei-illustrations This image is on the right track, but the character
+looks like decoration. Keep the core meaning, but regenerate so the character is
+the one actually driving the structure. Make it a little stranger, still pure
+white, clean, and sparse on text.
 ```
 
-## 生成一组风格样片
+## Generate a style sample set
 
 ```text
-Use $ian-xiaohei-illustrations 输出 5 个不同主题的小黑正文配图效果。
-主题分别覆盖：信息过载、产品验证、内容复利、一人公司、信任建立。
-每张单独生成，不要拼成一张。
+/ian-xiaohei-illustrations Output 5 body illustrations on different themes.
+Cover: information overload, product validation, content compounding,
+the one-person company, and building trust.
+Generate each one separately — don't combine them into a single image.
 ```

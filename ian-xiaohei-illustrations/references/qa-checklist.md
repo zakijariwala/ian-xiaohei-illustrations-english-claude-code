@@ -4,8 +4,8 @@
 
 - Is 16:9 horizontal format.
 - Background is clean white.
-- Xiaohei is present.
-- Xiaohei performs the core action — not just decoration.
+- The active character is present.
+- The character performs the core action — not just decoration.
 - Did not recreate an old example composition — invented a new metaphor for this article.
 - Image feels absurd, creative, and interesting.
 - Clean and spacious — main subject doesn't exceed ~60% of canvas.
@@ -20,7 +20,7 @@
 If any of the following appear, regenerate or locally edit:
 
 - Top-left corner has a title like "Common Pitfalls / Workflow / System Architecture / Roadmap."
-- Xiaohei looks like a mascot, emoji character, or cute cartoon.
+- The character looks like a mascot, emoji character, or cute cartoon.
 - Image looks like a PPT, course slide, or formal flowchart.
 - Too many elements, too many arrows, too many nodes.
 - Text turned into long explanatory paragraphs.
@@ -32,7 +32,7 @@ If any of the following appear, regenerate or locally edit:
 
 ## Iteration Methods
 
-- Too generic: Make Xiaohei the action subject; add one strange-but-coherent metaphor.
+- Too generic: Make the character the action subject; add one strange-but-coherent metaphor.
 - Too complex: Cut nodes — keep only one action and 3–5 short labels.
 - Too cute: Emphasize deadpan, blank serious expression, not cute, not mascot.
 - Too PPT: Remove titles, borders, neat grids, and excess arrows; turn it into a hand-drawn scene.
