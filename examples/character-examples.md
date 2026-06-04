@@ -724,12 +724,13 @@ background, no commercial vector style, no PPT infographic look, no cute mascot 
 no children's illustration, no realistic UI.
 
 IP character required:
-Al-Zill (الظل), a tall thin black silhouette figure, slightly pointed at the top, with
-narrow white almond-shaped eyes and long sleeves that always conceal the hands. Body has
-Islamic geometric pattern precision and Karagöz shadow-puppet flatness — pure 2D,
-mathematically clean, ornament as structure. Al-Zill performs the core action through
-presence and implication: the hands are never visible, but the task is clearly being
-done. Patient. Architectural. Stoic. Not cute. Has been doing this for a century.
+Al-Zill (الظل), a tall thin black silhouette figure with a tapered calligraphic top (like
+an alif upstroke), narrow white almond-shaped eyes, and long sleeves that drape over the
+hands (a shadow-puppet device). Body has Islamic geometric pattern precision and Karagöz
+shadow-puppet flatness — pure 2D, mathematically clean, ornament as structure. Al-Zill
+builds the core action from exact, repeating units, the way a geometric pattern is
+constructed; a slight tilt of the tall form reads as a deliberate move. Precise.
+Architectural. Dry. Not cute.
 
 Theme:
 A tower built one stone at a time, over a very long period, by a figure who has been

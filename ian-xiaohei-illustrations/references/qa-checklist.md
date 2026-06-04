@@ -36,7 +36,7 @@ If any of the following appear, regenerate or locally edit:
 - Too complex: Cut nodes — keep only one action and 3–5 short labels.
 - Too cute: Emphasize deadpan, blank serious expression, not cute, not mascot.
 - Too PPT: Remove titles, borders, neat grids, and excess arrows; turn it into a hand-drawn scene.
-- Too similar to an old example: Keep the core meaning; swap out the main object and Xiaohei's action.
+- Too similar to an old example: Keep the core meaning; swap out the main object and the character's action.
 - Text errors: Try local edit first; if errors are many, regenerate with fewer annotations.
 
 ## Delivery Judgment

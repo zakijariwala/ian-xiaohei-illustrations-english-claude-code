@@ -31,7 +31,7 @@ Load only what the task requires — don't fill the context with everything at o
 
 ```json
 // settings.json
-{ "default_character": "the-smudge" }
+{ "default_character": "xiaohei" }
 ```
 
 If the user specifies a different character in their request (by name, alias, ID, or culture), that overrides `settings.json` for this session only. Load the character's file from `references/characters/<id>.md` and use its `Prompt Injection` block in every image prompt.
@@ -97,7 +97,7 @@ If the user only says "analyze how to illustrate this / think about where illust
 - The image's theme
 - Core meaning
 - Structure type
-- What Xiaohei is doing in the image
+- What the character is doing in the image
 - Suggested elements
 - Suggested annotation words
 
