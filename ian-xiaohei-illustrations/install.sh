@@ -62,6 +62,8 @@ sync_skill() {
 
   mkdir -p "${dest}"
   cp -R "${SKILL_DIR}/." "${dest}/"
+  # Remove developer-machine bytecode that cp -R picks up unconditionally.
+  rm -rf "${dest}/scripts/__pycache__"
 
   if [[ -n "${saved_settings}" ]]; then
     cp "${saved_settings}" "${dest}/settings.json"

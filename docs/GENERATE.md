@@ -176,7 +176,7 @@ for entry in \
   "xiaohei:01-xiaohei-content-press" \
   "chibi-kage:02-chibi-kage-knowledge-loom" \
   "kaala:03-kaala-four-streams" \
-  "kali-tikka:04-kali-tikka-jugaad" \
+  "kali-tikka:04-kali-tikka-block-print" \
   "le-bloc:05-le-bloc-approval-loop" \
   "the-smudge:06-the-smudge-ship-it" \
   "dudu:07-dudu-arm-filter" \

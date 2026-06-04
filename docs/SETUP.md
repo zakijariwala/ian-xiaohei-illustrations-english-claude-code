@@ -70,6 +70,8 @@ cp -R ./ian-xiaohei-illustrations ~/.claude/skills/
 
 ### Step 3 — Set an Image API Key
 
+> **Claude Pro / Max users:** your `image_gen` tool is already available — skip to Step 4. No API key needed.
+
 ```bash
 # Pick one provider
 export GEMINI_API_KEY="your-gemini-key"   # Nano Banana / Imagen
@@ -157,6 +159,8 @@ CODEX_HOME=/path/to/codex ./ian-xiaohei-illustrations/install.sh codex
 
 ### Step 3 — Set an Image API Key
 
+> **Claude Pro / Max users:** your `image_gen` tool is already available — skip to Step 4. No API key needed.
+
 ```bash
 export OPENAI_API_KEY="your-openai-key"   # DALL·E (gpt-image-1)
 # or use Gemini
@@ -222,6 +226,8 @@ cp -R ./ian-xiaohei-illustrations ~/.gemini/skills/
 ```
 
 ### Step 3 — Set an Image API Key
+
+> **Claude Pro / Max users:** your `image_gen` tool is already available — skip to Step 4. No API key needed.
 
 Gemini CLI can use your existing Gemini credentials for Nano Banana:
 
@@ -300,6 +306,8 @@ Or, if your framework loads all YAMLs from a skills directory, just copy the fil
 
 ### Step 3 — Set an Image API Key
 
+> **Claude Pro / Max users:** your `image_gen` tool is already available — skip to Step 4. No API key needed.
+
 ```bash
 export GEMINI_API_KEY="your-key"   # or OPENAI_API_KEY / STABILITY_API_KEY
 ```
@@ -356,6 +364,8 @@ The Antigravity config at `agents/antigravity.yaml` declares:
 Point your Antigravity agent at the config file, or drop the whole skill directory into your framework's skills folder.
 
 ### Step 3 — Set an Image API Key
+
+> **Claude Pro / Max users:** your `image_gen` tool is already available — skip to Step 4. No API key needed.
 
 ```bash
 export GEMINI_API_KEY="your-key"   # or OPENAI_API_KEY / STABILITY_API_KEY
@@ -461,9 +471,9 @@ The skill uses a two-layer approach:
 
 | Provider | Best for | Cost | Notes |
 |----------|----------|------|-------|
-| **Nano Banana** (Gemini) | Fast, creative, good blank-space control | Pay-per-use | Recommended first choice |
+| **Nano Banana** (Gemini) | Fast, creative, good blank-space control | **Free tier** | Recommended first choice |
 | **DALL·E** (gpt-image-1) | High quality, accurate text rendering | Pay-per-use | Falls back to dall-e-3 |
-| **Imagen** (Google) | Photorealistic, clean style | Pay-per-use | Same key as Nano Banana |
+| **Imagen** (Google) | Photorealistic, clean style | **Free tier** | Same key as Nano Banana |
 | **Stability** | Open ecosystem, local option | Pay-per-use or self-host | Needs `requests` package |
 
 ### Getting API Keys
